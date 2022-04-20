@@ -20,13 +20,25 @@ import utils.Database;
  *
  * @author Arij Hajji
  */
-public class ServiceAvisReparation implements IService<AvisReparation>{
-private Connection cnx = Database.getInstance().getCnx() ;
+public class ServiceAvisReparation implements AvisReparationCrud<AvisReparation>{
+  private static ServiceAvisReparation  instance;
+    private final Connection cnx;
 
+    public static ServiceAvisReparation  getInstance() {
+        if (instance == null) {
+            instance = new ServiceAvisReparation ();
+        }
+        return instance;
+
+    }
+
+    public ServiceAvisReparation () {
+        cnx = Database.getInstance().getCnx();
+    }
     @Override
     public void ajouter(AvisReparation t) {
         try {
-        String querry= "INSERT INTO `avis_reparation` ( `description`, `nom`, `email`, `idrep_id`, `iduser`) VALUES "
+        String querry= "INSERT INTO `avis_reparation` (`description`, `nom`, `email`, `idrep_id`, `iduser`) VALUES  "
                 + " ('"+t.getDescription()+"','"+t.getNom()+"','"+t.getEmail()+"','"+t.getIdreparation()+"','"+t.getIduser()+"')";
         Statement stm = cnx.createStatement();
     
@@ -51,8 +63,10 @@ private Connection cnx = Database.getInstance().getCnx() ;
             AvisReparation p = new AvisReparation();
             
             p.setId(rs.getInt(1));
+                        p.setIdreparation(rs.getInt("idrep"));
+
             p.setDescription(rs.getString("description"));
-            p.setNom(rs.getString(3));
+            p.setNom(rs.getString("nom"));
             p.setEmail(rs.getString("email"));
           //  p.setIdreparation(rs.getInt(1));
            // p.setIduser(rs.getInt(1));
@@ -106,5 +120,7 @@ private Connection cnx = Database.getInstance().getCnx() ;
             System.err.println(ex.getMessage());
         }
     }
+
+    
     
 }

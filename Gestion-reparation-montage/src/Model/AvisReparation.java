@@ -28,6 +28,10 @@ public class AvisReparation {
         this.nom = nom;
     }
 
+    public AvisReparation(int i, AvisReparation t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void setIduser(int iduser) {
         this.iduser = iduser;
     }
@@ -44,7 +48,14 @@ public class AvisReparation {
         this.email = email;
         this.nom = nom;
     }
-
+  public AvisReparation( int idreparation, String Description, String email, String nom,int iduser) {
+     
+      this.idreparation=idreparation;
+        this.Description = Description;
+        this.email = email;
+        this.nom = nom;
+          this.iduser = iduser;
+    }
     public int getIdreparation() {
         return idreparation;
     }
@@ -64,13 +75,13 @@ public class AvisReparation {
         this.idreparation = idreparation;
         this.Description = Description;
     }
-
-    public AvisReparation(int id, String Description, int idreparation) {
-        this.id = id;
-      
+    public AvisReparation(int idreparation, String Description, int iduser) {
+        this.idreparation = idreparation;
         this.Description = Description;
-          this.idreparation = idreparation;
+        this.iduser=iduser;
     }
+    
+
 
    
  
@@ -108,8 +119,10 @@ public class AvisReparation {
 
     @Override
     public String toString() {
-        return "AvisReparation{" + "Description=" + Description + '}';
+        return "AvisReparation{" + "Description=" + Description + ", email=" + email + ", nom=" + nom + '}';
     }
+
+  
 
     
 }

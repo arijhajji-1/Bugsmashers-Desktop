@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReparationController">
+   <children>
+      <Button layoutX="212.0" layoutY="462.0" mnemonicParsing="false" onAction="#ajouterReparation" text="Ajouter" />
+      <DatePicker fx:id="date" layoutX="166.0" layoutY="404.0" prefHeight="31.0" prefWidth="287.0" />
+      <ComboBox fx:id="category" layoutX="160.0" layoutY="138.0" prefHeight="31.0" prefWidth="287.0" />
+      <TextField fx:id="type" layoutX="163.0" layoutY="193.0" onKeyTyped="#typecontrole" prefHeight="31.0" prefWidth="287.0" />
+      <TextArea fx:id="description" layoutX="163.0" layoutY="226.0" prefHeight="153.0" prefWidth="287.0" />
+      <Label layoutX="59.0" layoutY="143.0" text="category" />
+      <Label layoutX="72.0" layoutY="198.0" text="Type" />
+      <Label layoutX="66.0" layoutY="279.0" text="Description" />
+      <Label layoutX="116.0" layoutY="408.0" text="Date" />
+      <Label alignment="CENTER" layoutX="285.0" layoutY="56.0" prefHeight="17.0" prefWidth="287.0" text="Demande de reparation" textFill="#e40808">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="affiche" layoutX="319.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#AfficherReparation" text="Afficher" />
+   </children>
+</Pane>

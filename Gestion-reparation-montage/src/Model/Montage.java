@@ -69,7 +69,19 @@ public class Montage {
                 this.iduser = iduser;
 
     }
+    public Montage(int idmontage, String processeur, String carte_graphique, String carte_mere, String disque_systeme, String boitier, String stockage_supp, int montant,String email,int iduser) {
+       this.idmontage=idmontage;
+        this.processeur = processeur;
+        this.carte_graphique = carte_graphique;
+        this.carte_mere = carte_mere;
+        this.disque_systeme = disque_systeme;
+        this.boitier = boitier;
+        this.stockage_supp = stockage_supp;
+        this.montant = montant;
+                this.email = email;
+                this.iduser = iduser;
 
+    }
     public Montage(int idmontage, String processeur) {
         this.idmontage = idmontage;
         this.processeur = processeur;

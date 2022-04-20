@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 import utils.Database;
 
@@ -20,9 +22,21 @@ import utils.Database;
  *
  * @author Arij Hajji
  */
-public class ServiceMontage implements IService<Montage> {
-    private Connection cnx = Database.getInstance().getCnx() ;
-   
+public class ServiceMontage implements MontageCrud<Montage> {
+   private static ServiceMontage  instance;
+    private final Connection cnx;
+
+    public static ServiceMontage  getInstance() {
+        if (instance == null) {
+            instance = new ServiceMontage ();
+        }
+        return instance;
+
+    }
+
+    public ServiceMontage () {
+        cnx = Database.getInstance().getCnx();
+    }
     @Override
     public void ajouter(Montage t) {
     try {
@@ -40,9 +54,11 @@ public class ServiceMontage implements IService<Montage> {
         
     }
 
-    @Override
-    public List<Montage> afficher() {
-     List<Montage> personnes = new ArrayList();
+     @Override
+    public ObservableList<Montage> afficher() {
+                 ObservableList<Montage> listMontage = FXCollections.observableArrayList();
+
+    // List<Reparation> personnes = new ArrayList();
         try {
        
         String querry ="SELECT * FROM `montage`";
@@ -52,39 +68,39 @@ public class ServiceMontage implements IService<Montage> {
             Montage p = new Montage();
             
             p.setIdmontage(rs.getInt(1));
-            p.setProcesseur(rs.getString("Processeur"));
-            p.setCarte_graphique(rs.getString(3));
+            p.setProcesseur(rs.getString("processeur"));
             p.setCarte_mere(rs.getString("carte_mere"));
+            p.setCarte_graphique(rs.getString("carte_graphique"));
             p.setDisque_systeme(rs.getString("disque_systeme"));
-            p.setBoitier(rs.getString("Boitier"));
-            p.setStockage_supp(rs.getString("stockage_supp"));
-            p.setMontant(rs.getInt(1));
-                        p.setEmail(rs.getString("email"));
+                        p.setStockage_supp(rs.getString("stockage_supp"));
+                                    p.setBoitier(rs.getString("boitier"));
+                                                p.setMontant(rs.getInt("montant"));
 
-            personnes.add(p);
+
+
+        
+            listMontage.add(p);
         }
         
         
         
-        return personnes;
+        return listMontage;
     } catch (SQLException ex) {
         }
-    return personnes;
+    return listMontage;
     }
-
    
 
     @Override
     public void modifier(Montage t) {
        try {
-            String req3 = "UPDATE Montage SET processeur= ? where id= ?" ;
-   PreparedStatement stm = cnx.prepareStatement(req3);         
-   stm.setString(1,t.getProcesseur());
-             stm.setInt(2,t.getIdmontage());
+           String querry = "UPDATE `montage` SET processeur = '"+t.getProcesseur()+
+                        "', carte_mere = '"+t.getCarte_mere()+"', carte_graphique = '"+t.getCarte_graphique()+
+                        "', disque_systeme = '"+t.getDisque_systeme()
+                        +"', stockage_supp = '"+t.getStockage_supp() +"', boitier= '"+t.getBoitier()+"' WHERE `id` = '"+t.getIdmontage()+"'";
+                Statement stm = cnx.createStatement();
 
-
-
-            stm.executeUpdate() ;
+                stm.executeUpdate(querry);
              System.out.println("Your montage has been modified ");
          JOptionPane.showMessageDialog(null, "montage modified ");
 
@@ -92,23 +108,22 @@ public class ServiceMontage implements IService<Montage> {
             System.err.println(ex.getMessage());
              JOptionPane.showMessageDialog(null, ex);
         }
+      
+
     }
 
-    @Override
-    public void supprimer(int id) {
-         try {
-            String requete = "DELETE FROM montage WHERE id = ? ";
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(1, id);
-            int rsltUpdate = pst.executeUpdate();
-            if (rsltUpdate == 0) {
-                System.err.println("EXITE AUCUN ELEMENT CORRESPOND AU DONNEE SAISIE !! \n AUCUNE SUPPRESSION N'EST EFFECTUEE !!");
-            } else {
-                    System.out.println("montage DELETED SUCCESFULLY !!");
+  @Override
+   public void supprimer(Montage t) {
+            try{
+                String querry = "DELETE FROM montage WHERE `id` = '"+t.getIdmontage()+"'";
+                Statement stm = cnx.createStatement();
+
+                stm.executeUpdate(querry);
+
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+
             }
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
         }
-    }
     
 }
