@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package GUI_Back;
 
-import static GUI.AffichageMontageController.montageActuel;
 import Model.AvisReparation;
-import Model.Montage;
+
 import Services.ServiceAvisReparation;
 
-import Services.ServiceMontage;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
@@ -30,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -51,7 +50,7 @@ public class ListAvisController implements Initializable {
     private final static int rowsPerPage = 2;
    AvisReparation avisRep;
     @FXML
-    private TableColumn<AvisReparation, String> idrep;
+    private TableColumn<AvisReparation, Integer> idrep;
     @FXML
     private TableColumn<AvisReparation, String> desc;
     @FXML
@@ -60,6 +59,8 @@ public class ListAvisController implements Initializable {
     private TableColumn<AvisReparation, String> mail;
     @FXML
     private TableView<AvisReparation> tab;
+    @FXML
+    private Button back;
 
     /**
      * Initializes the controller class.
@@ -70,20 +71,7 @@ public class ListAvisController implements Initializable {
     loadDate();
      
     }
-     private void refreshTable() {
-          avis .clear();
-
-
-                 List<AvisReparation> listAvis = ServiceAvisReparation.getInstance().afficher();
-
-        if (!listAvis.isEmpty()) {
-            for (int i = 0; i < listAvis.size(); i++) {
-               AvisReparation AvisReparation = listAvis.get(i);
-                avis.add(AvisReparation);
-            }
-        }
-     tab.setItems(avis);
-    }
+     
        private void loadDate() {
         List<AvisReparation> listAvis = ServiceAvisReparation.getInstance().afficher();
 
@@ -93,19 +81,17 @@ public class ListAvisController implements Initializable {
                 avis.add(AvisReparation);
             }
         }
-                    refreshTable();
+              
 
-        idrep.setCellValueFactory(new PropertyValueFactory<>("idrep"));
+        
         desc.setCellValueFactory(new PropertyValueFactory<>("description"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         mail.setCellValueFactory(new PropertyValueFactory<>("email"));
-  
-
+  idrep.setCellValueFactory(new PropertyValueFactory<>("idrep_id"));
        AvisActuel= null;
 
         tab.setItems(avis);
-  
-        //// Wrap the ObservableList in a FilteredList (initially display all data).
+
       
 
        
@@ -121,5 +107,17 @@ public class ListAvisController implements Initializable {
                      AvisActuel = tab.getSelectionModel().getSelectedItem();
 
     }   
+
+    @FXML
+    private void back(ActionEvent event) {
+        try {
+            FXMLLoader main = new FXMLLoader(getClass().getResource("ReparationAffiche.fxml"));
+            Parent root = (Parent) main.load();
+         
+            this.back.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
     
 }

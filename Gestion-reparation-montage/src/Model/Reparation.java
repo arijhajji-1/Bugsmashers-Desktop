@@ -63,19 +63,18 @@ public class Reparation {
         this.telephone = telephone;
     }
 
-    public Reparation(int id, String description) {
+   
+ public Reparation(int id, String etat) {
         this.id = id;
-        this.description = description;
+        this.etat = etat;
     }
-
-    public Reparation( String category, String type, String description, String Reserver, String telephone, String etat, String email,int iduser) {
+    public Reparation( String category, String type, String description, String Reserver, String telephone, String email,int iduser) {
         this.iduser = iduser;
         this.category = category;
         this.type = type;
         this.description = description;
         this.Reserver = Reserver;
         this.telephone = telephone;
-        this.etat = etat;
         this.email = email;
     }
 
@@ -125,7 +124,7 @@ public class Reparation {
     }
 
     public void setEtat(String etat) {
-        this.etat = "en Cours";
+        this.etat = etat;
     }
 
 

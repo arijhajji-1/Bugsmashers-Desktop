@@ -76,7 +76,8 @@ public class ServiceMontage implements MontageCrud<Montage> {
                                     p.setBoitier(rs.getString("boitier"));
                                                 p.setMontant(rs.getInt("montant"));
 
-
+ p.setEmail(rs.getString("email"));
+  p.setIduser(rs.getInt("iduser"));
 
         
             listMontage.add(p);

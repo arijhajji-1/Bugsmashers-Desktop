@@ -6,6 +6,7 @@
 package Services;
 
 import Model.AvisReparation;
+import Model.Reparation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 import utils.Database;
 
@@ -51,10 +54,11 @@ public class ServiceAvisReparation implements AvisReparationCrud<AvisReparation>
     }
 
     @Override
-    public List<AvisReparation> afficher() {
-        
-        List<AvisReparation> personnes = new ArrayList();
-        try {
+    public ObservableList<AvisReparation> afficher() {
+       
+//     int   Re=Reparation.getId();
+ObservableList<AvisReparation> List = FXCollections.observableArrayList();       
+try {
        
         String querry ="SELECT * FROM `avis_reparation` ";
         Statement stm = cnx.createStatement();
@@ -62,24 +66,25 @@ public class ServiceAvisReparation implements AvisReparationCrud<AvisReparation>
         while (rs.next()){
             AvisReparation p = new AvisReparation();
             
-            p.setId(rs.getInt(1));
-                        p.setIdreparation(rs.getInt("idrep"));
+            p.setId(rs.getInt("id"));
 
             p.setDescription(rs.getString("description"));
             p.setNom(rs.getString("nom"));
             p.setEmail(rs.getString("email"));
+            p.setIdreparation(rs.getInt("idrep_id"));
+
           //  p.setIdreparation(rs.getInt(1));
-           // p.setIduser(rs.getInt(1));
+            p.setIduser(rs.getInt("iduser"));
          
-            personnes.add(p);
+            List.add(p);
         }
         
         
         
-        return personnes;
+        return List;
     } catch (SQLException ex) {
         }
-    return personnes;
+    return List;
     }
 
     @Override

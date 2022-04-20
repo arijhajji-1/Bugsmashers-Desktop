@@ -39,13 +39,13 @@ public class RelouaDesktop {
           // String currentTime = sdf.format(dt);
            //java.time.LocalDate.now();
                  ServiceMontage p2 =  new ServiceMontage();
-             //   ServiceAvisReparation p3 =  new ServiceAvisReparation();
+               ServiceAvisReparation p3 =  new ServiceAvisReparation();
                                 //p3.ajouter(new AvisReparation(130,1,"carte", "bugs ","fdgdgfd"));
 //p3.supprimer(3);
 //p3.modifier(new AvisReparation(5,"bonjour"));
 
                   //System.out.println(p3.afficher());
-  System.out.println(p2.afficher());
+  System.out.println(p3.afficher());
               //   p2.ajouter(new Montage("carte", "bugs ","fdgdgfd","gdfg","fgfd","en cours",500,"dgfgdd",1));
                  // System.out.println(p3.afficher());
 //p2.supprimer(114);
@@ -53,7 +53,7 @@ public class RelouaDesktop {
 
                 //p.ajouter(new Reparation("souris", "bugs ","fdgdgfd",java.time.LocalDate.now().toString(),"+21690197079","en cours","arij.hajji@esprit.tn",1));
                  ServiceReparation sp =  new ServiceReparation();
-  System.out.println(sp.afficher());
+  //System.out.println(sp.afficher());
 //sp.supprimer(130);
 //sp.modifier(new Reparation(127,"bonjour"));
  // System.out.println(sp.afficher());

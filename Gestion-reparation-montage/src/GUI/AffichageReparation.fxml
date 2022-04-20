@@ -28,6 +28,5 @@
          </font>
       </Text>
       <Button fx:id="backButton" layoutX="724.0" layoutY="17.0" mnemonicParsing="false" onAction="#back" text="back" />
-      <Button fx:id="avis" layoutX="635.0" layoutY="17.0" mnemonicParsing="false" onAction="#avis" text="Avis" />
    </children>
 </AnchorPane>

@@ -3,12 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/MontageController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/relouadesktop/RelouaDesktop.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/ListAvisController.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/reparationMain.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/ServiceReparation.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/AvisReparationController.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Model/AvisReparation.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ReparationAfficheController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ReparationAffiche.fxml</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/AffichageReparationController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/Dashboard.fxml</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/Main.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/Controller.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/ServiceAvisReparation.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/ReparationController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/AvisReparationController.java</file>
         </group>
     </open-files>
 </project-private>

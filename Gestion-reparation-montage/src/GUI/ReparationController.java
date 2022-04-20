@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -25,6 +26,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -56,32 +58,61 @@ public class ReparationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+date.setDayCellFactory(picker -> new DateCell() {
+        public void updateItem(LocalDate date, boolean empty) {
+            super.updateItem(date, empty);
+            LocalDate today = LocalDate.now();
 
+            setDisable(empty || date.compareTo(today) < 0 );
+        }
+    });
+ /*  type.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\\sa-zA-Z*")) {
+           type.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+        }
+    });*/
           List<Category> listCategory = ServiceCategory.getInstance().afficher();
         listCategory.forEach(Categories -> {
             category.getItems().add(Categories.getLabel());
         });
     }    
-
+ private boolean controlerFormulaire() {
+        boolean isOk = true;
+        List<String> messageErreur = new ArrayList<>();
+        if (type.getText() == null || type.getText().isEmpty()) {
+            isOk = false;
+            messageErreur.add("Le champ \"type\" est obligatoire");
+        }
+        if (description.getText() == null || description.getText().isEmpty()) {
+            isOk = false;
+            messageErreur.add("Le champ \"description\" est obligatoire");
+        }  
+        if (date.getValue() == null || date.getValue().toString().isEmpty()) {
+            isOk = false;
+            messageErreur.add("Le champ \"Date\" est obligatoire");
+        }
+         if(category.getValue()==null||category.getValue().isEmpty())
+         {
+                isOk = false;
+            messageErreur.add("Le champ \"category\" est obligatoire");  
+         }
+        if(!isOk) {
+            Alert erreur = new Alert(AlertType.ERROR);
+            erreur.setTitle("Erreur ! ");
+            StringBuilder sb = new StringBuilder();
+            messageErreur.stream().forEach((x) -> sb.append("\n" + x));
+            erreur.setHeaderText(sb.toString());
+            erreur.showAndWait();
+        }      
+        return isOk;
+    }
     @FXML
        private void ajouterReparation(ActionEvent event) throws IOException {
-           String cat= category.getValue();
-
-        String ty = type.getText();
-
-        String desc = description.getText();
-
-        String dat= date.getValue().toString();
-
+          
               
-        int opt = JOptionPane.showConfirmDialog(null, "Are you sure to Insert ", "Insert", JOptionPane.YES_NO_OPTION);
-        if ( desc.isEmpty() || ty.isEmpty()||dat.isEmpty()||cat.isEmpty()) {
-Alert errorAlert = new Alert(AlertType.ERROR);
-errorAlert.setHeaderText("champs vide");
-errorAlert.setContentText("vous devez remplir les champs");
-errorAlert.showAndWait();
-                   }
-        else { if (opt==0&&update==false){
+        if ( controlerFormulaire()) {
+if(update==false){
+              
         ServiceReparation rep = new ServiceReparation();
 		
 		
@@ -89,7 +120,7 @@ errorAlert.showAndWait();
 		rep.ajouter(new Reparation((String) category.getValue(),
                         type.getText(),
                         description.getText(),
-                        date.getValue().toString(),"90197079","en cours","arij.hajji@esprit.tn",1));
+                        date.getValue().toString(),"90197079","arij.hajji@esprit.tn",1));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setHeaderText(null);
                                 alert.setContentText("reparation added");
@@ -106,8 +137,8 @@ errorAlert.showAndWait();
                         date.getValue().toString())) ;    
                  }
   
-                         }
-		
+                         
+       }
 	
     }
 
@@ -139,6 +170,7 @@ private void clean() {
 
         reparationId= id;
        type.setText(ty);
+       datee= String.valueOf(date.getValue());
  //date.setText(datee);
        // date.setText(date);
         description.setText(desc);

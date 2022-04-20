@@ -81,8 +81,6 @@ public class AffichageReparationController implements Initializable {
 // private ObservableList<Reparation> listreparations;
     @FXML
     private TableColumn<Reparation, String> action;
-    @FXML
-    private Button avis;
   
     /**
      * Initializes the controller class.
@@ -308,17 +306,7 @@ loadDate();
 
     }
 
-    @FXML
-    private void avis(ActionEvent event) {
-        try {
-            FXMLLoader main = new FXMLLoader(getClass().getResource("ListAvis.fxml"));
-            Parent root = (Parent) main.load();
-         
-            this.avis.getScene().setRoot(root);
-        } catch (IOException e) {
-            System.out.println(e);
-        } 
-    }
+   
 
     
     

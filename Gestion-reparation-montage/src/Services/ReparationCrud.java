@@ -18,6 +18,7 @@ public interface ReparationCrud <T> {
     public List<T> afficher();
    public List<T> getReparation();
     public void  modifier (T t);
+    public void  modifierEtat (T t);
     public void supprimer (T t);
     /*
     ....

@@ -43,8 +43,8 @@ public class ServiceReparation implements ReparationCrud<Reparation>{
     @Override
     public void ajouter(Reparation t) {
     try {
-        String querry= "INSERT INTO reparation(`category`,`type`,`description`, `reserver`,`telephone`,`etat`,`email`,`iduser`) VALUES"
-                + " ('"+t.getCategory()+"','"+t.getType()+"','"+t.getDescription()+"','"+t.getReserver()+"','"+t.getTelephone()+"','"+t.getEtat()+"','"+t.getEmail()+"','"+t.getIduser()+"')";
+        String querry= "INSERT INTO reparation(`category`,`type`,`description`, `reserver`,`telephone`,`email`,`iduser`) VALUES"
+                + " ('"+t.getCategory()+"','"+t.getType()+"','"+t.getDescription()+"','"+t.getReserver()+"','"+t.getTelephone()+"','"+t.getEmail()+"','"+t.getIduser()+"')";
         Statement stm = cnx.createStatement();
     
     stm.executeUpdate(querry);
@@ -97,7 +97,10 @@ public class ServiceReparation implements ReparationCrud<Reparation>{
             p.setType(rs.getString(3));
             p.setCategory(rs.getString("category"));
             p.setReserver(rs.getString("Reserver"));
-        
+        p.setEmail(rs.getString("email"));
+        p.setEtat(rs.getString("etat"));
+        p.setTelephone(rs.getString("telephone"));
+        p.setIduser(rs.getInt("iduser"));
             listReparation.add(p);
         }
         
@@ -125,7 +128,18 @@ public class ServiceReparation implements ReparationCrud<Reparation>{
                 System.out.println(ex.getMessage());
             }
         }
+ @Override
+        public void modifierEtat(Reparation t) {
+            try{
+                String querry = "UPDATE `reparation` SET etat = '"+t.getEtat()
+                        +"' WHERE `id` = '"+t.getId()+"'";
+                Statement stm = cnx.createStatement();
 
+                stm.executeUpdate(querry);
+            }catch(SQLException ex){
+                System.out.println(ex.getMessage());
+            }
+        }
     @Override
    public void supprimer(Reparation t) {
             try{
