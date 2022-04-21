@@ -12,7 +12,7 @@ import utils.MyDb;
 
 /**
  *
- * @author Mohamed
+ * @author Mahdi
  */
 public class pi {
 
@@ -21,7 +21,7 @@ public class pi {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-  Commande p1 = new Commande("ben salah" ,"salah","Cash","80 rue de jasmin",22626879);
+  Commande p1 = new Commande("aaeaa" ,"aeae","aeaea","80 rue de jasmin",22626444);
   Commande p2 = new Commande("mourad" ,"ali","Cash","80 rue de jasmin",22626879);
   
 
@@ -31,8 +31,8 @@ Location p3=new Location(300,"2022-04-17","2022-04-22");
   ServiceCommande sp =  new ServiceCommande();
 
  ServiceLocation ss= new ServiceLocation();
-  
-   //sp.ajouter(p1);
+    p1.setId(58);
+   sp.modifier(p1);
 //ss.ajouter(p3);
     
 System.out.println(sp.afficher().toString());
