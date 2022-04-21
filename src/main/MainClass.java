@@ -1,7 +1,8 @@
 package main;
-import java.sql.Date;
 import entities.User;
 import services.UserServices;
+
+import java.sql.Date;
 public class MainClass{
     public static void main(String[] args) {
         try {
@@ -13,8 +14,6 @@ public class MainClass{
             cc.ajouteruser(u);
 
             System.out.println(cc.listerUsers());
-            //cc.modifierUsers(1, "Mounir", "Mese3di", "chayma", "chayma", "chayma", "monji");
-            //cc.supprimerUser(u,4);
             //cc.Login("aa", "vv");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

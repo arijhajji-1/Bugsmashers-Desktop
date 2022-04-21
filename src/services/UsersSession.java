@@ -5,13 +5,14 @@
  */
 package services;
 
+import utils.MyConnection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import utils.MyConnection;
 
 /**
  *
- * @author Sejir
+ * @author Hsine
  */
 public class UsersSession {
     public static UsersSession getInstance() {
