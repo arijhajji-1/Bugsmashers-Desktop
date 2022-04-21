@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="javafx-sdk-18">
+    <CLASSES>
+      <root url="file://$USER_HOME$/javafx-sdk-18" />
+      <root url="file://$USER_HOME$/javafx-sdk-18" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/javafx-sdk-18" />
+      <root url="file://$USER_HOME$/javafx-sdk-18" />
+    </SOURCES>
+    <excluded>
+      <root url="jar://$USER_HOME$/javafx-sdk-18/src.zip!/" />
+      <root url="jar://$USER_HOME$/javafx-sdk-18/mysql-connector-java-5.1.23-bin.jar!/" />
+    </excluded>
+    <jarDirectory url="file://$USER_HOME$/javafx-sdk-18" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/javafx-sdk-18" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/javafx-sdk-18" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$USER_HOME$/javafx-sdk-18" recursive="false" type="SOURCES" />
+  </library>
+</component>

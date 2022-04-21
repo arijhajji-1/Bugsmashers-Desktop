@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-5.1.23-bin">
+    <CLASSES>
+      <root url="jar://D:/Downloads/mysql-connector-java-5.1.23-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="jar://D:/Downloads/mysql-connector-java-5.1.23-bin.jar!/" />
+      <root url="jar://D:/Downloads/mysql-connector-java-5.1.23-bin.jar!/com" />
+      <root url="jar://D:/Downloads/mysql-connector-java-5.1.23-bin.jar!/META-INF" />
+      <root url="jar://D:/Downloads/mysql-connector-java-5.1.23-bin.jar!/org" />
+    </excluded>
+  </library>
+</component>
