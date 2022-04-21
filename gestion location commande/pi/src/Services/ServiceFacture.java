@@ -27,7 +27,7 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
     @Override
     public void ajouter(Facture f) {
     try {
-        String querry= "INSERT INTO facture(`nom`, `prenom`,`paiment`,`adresse`,`telephone`) VALUES ('"+f.getCommande_id()+"','"+f.getDateF()+"','"+f.getRemise()+"','"+f.getTotal()+"')";
+        String querry= "INSERT INTO facture(`Commande_id`, `date_fact`,`remise`,`total`) VALUES ('"+f.getCommande_id()+"','"+f.getDateF()+"','"+f.getRemise()+"','"+f.getTotal()+"')";
         Statement stm = cnx.createStatement();
     
     stm.executeUpdate(querry);
@@ -72,11 +72,11 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
 
             String query = "UPDATE facture SET commande_id=?, date_fact=?, remise=?, total=? WHERE id=?;";
             try (PreparedStatement stm = cnx.prepareStatement(query)) {
-                stm.setInt(1, Facture.getId());
-                stm.setInt(2, Facture.getCommande_id());
-                stm.setString(3, Facture.getDateF());
-                stm.setInt(4, Facture.getRemise());
-                stm.setInt(5, Facture.getTotal());
+                stm.setInt(5, Facture.getId());
+                stm.setInt(1, Facture.getCommande_id());
+                stm.setString(2, Facture.getDateF());
+                stm.setInt(3, Facture.getRemise());
+                stm.setInt(4, Facture.getTotal());
                 
                 
 

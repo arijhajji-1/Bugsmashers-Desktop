@@ -22,7 +22,16 @@ import utils.MyDb;
  */
 public class ServiceCommande implements IService<Commande>{
 private Connection cnx = MyDb.getInstance().getCnx() ;
-   
+   private static ServiceCommande  instance;
+    
+
+    public static ServiceCommande  getInstance() {
+        if (instance == null) {
+            instance = new ServiceCommande ();
+        }
+        return instance;
+
+    }
     @Override
     public void ajouter(Commande c) {
     try {
@@ -72,12 +81,12 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
 
             String query = "UPDATE commande SET nom=?, prenom=?, paiment=?, adresse=?, telephone=? WHERE id=?;";
             try (PreparedStatement stm = cnx.prepareStatement(query)) {
-                stm.setInt(1, Commande.getId());
-                stm.setString(2, Commande.getNom());
-                stm.setString(3, Commande.getPrenom());
-                stm.setString(4, Commande.getPaiment());
-                stm.setString(5, Commande.getAdresse());
-                stm.setInt(6, Commande.getTelephone());
+                stm.setInt(6, Commande.getId());
+                stm.setString(1, Commande.getNom());
+                stm.setString(2, Commande.getPrenom());
+                stm.setString(3, Commande.getPaiment());
+                stm.setString(4, Commande.getAdresse());
+                stm.setInt(5, Commande.getTelephone());
                 
 
                 stm.executeUpdate();

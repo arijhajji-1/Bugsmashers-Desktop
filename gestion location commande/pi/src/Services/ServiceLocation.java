@@ -71,10 +71,10 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
 
             String query = "UPDATE location SET date_deb=?, date_fin=?, total_l=? WHERE id=?;";
             try (PreparedStatement stm = cnx.prepareStatement(query)) {
-                stm.setInt(1, Location.getId());
-                stm.setString(2, Location.getDb());
-                stm.setString(3, Location.getDf());
-                stm.setInt(4, Location.getTotall());
+                stm.setInt(4, Location.getId());
+                stm.setString(1, Location.getDb());
+                stm.setString(2, Location.getDf());
+                stm.setInt(3, Location.getTotall());
                 
                 
 
@@ -86,7 +86,7 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
 
    @Override
     public void supprimer(Location Location) {
-        String query = "DELETE FROM commande WHERE id=?;";
+        String query = "DELETE FROM location WHERE id=?;";
 
         try(PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
             preparedStatement.setInt(1, Location.getId());
