@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Gestion-Produit-Reloua.iml" filepath="$PROJECT_DIR$/Gestion-Produit-Reloua.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gestionProduitLast.iml" filepath="$PROJECT_DIR$/gestionProduitLast.iml" />
     </modules>
   </component>
 </project>
