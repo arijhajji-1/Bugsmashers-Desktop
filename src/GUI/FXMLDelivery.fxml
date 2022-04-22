@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLDeliveryController">
+   <children>
+      <Text fill="#6051bf" layoutX="203.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GESTION LIVRAISON">
+         <font>
+            <Font name="System Bold Italic" size="38.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tfDescription" layoutX="21.0" layoutY="253.0" text="description" />
+      <ComboBox fx:id="cbPaie" layoutX="20.0" layoutY="107.0" prefWidth="150.0" promptText="mode de paiement" />
+      <ComboBox fx:id="cbLivr" layoutX="20.0" layoutY="156.0" prefWidth="150.0" promptText="mode de livraison" />
+      <ComboBox fx:id="cbRegion" layoutX="20.0" layoutY="202.0" prefWidth="150.0" promptText="region" />
+      <DatePicker fx:id="pickerdate" layoutX="9.0" layoutY="309.0" promptText="date" />
+      <TableView fx:id="TBLivraison" layoutX="228.0" layoutY="149.0" prefHeight="274.0" prefWidth="493.0">
+        <columns>
+          <TableColumn fx:id="tbId" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="tbPaie" prefWidth="75.0" text="mode_paiement" />
+            <TableColumn fx:id="tbLivr" prefWidth="75.0" text="mode_livraison" />
+            <TableColumn fx:id="tbRegion" prefWidth="75.0" text="region" />
+            <TableColumn fx:id="tbDescription" prefWidth="109.0" text="description" />
+            <TableColumn fx:id="tbDate" prefWidth="83.0" text="date" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_ajouter" layoutX="43.0" layoutY="364.0" mnemonicParsing="false" onAction="#ajouterLivraison" text="ajouter" />
+      <Button fx:id="btn_modifier" layoutX="131.0" layoutY="364.0" mnemonicParsing="false" onAction="#modifierLivraison" text="modifier" />
+      <Button fx:id="btn_supprimer" layoutX="423.0" layoutY="442.0" mnemonicParsing="false" onAction="#supprimerLivraison" text="supprimer" />
+      <TextField fx:id="tfRechercher" layoutX="240.0" layoutY="95.0" prefHeight="25.0" prefWidth="308.0" />
+      <Button fx:id="btn_rechercher" layoutX="607.0" layoutY="95.0" mnemonicParsing="false" onAction="#rechercheLivraison" prefHeight="25.0" prefWidth="79.0" text="rechercher" />
+      <ComboBox fx:id="cbFiltre" layoutX="549.0" layoutY="95.0" prefHeight="25.0" prefWidth="27.0" />
+      <Button fx:id="btn_Print" layoutX="522.0" layoutY="442.0" mnemonicParsing="false" onAction="#imprimer" text="Print" />
+      <Button fx:id="btn_trier" layoutX="695.0" layoutY="95.0" mnemonicParsing="false" onAction="#triLivraison" text="trier" />
+      <Button fx:id="btn_pdf" layoutX="595.0" layoutY="442.0" mnemonicParsing="false" onAction="#pdfLivraison" text="PDF" />
+      <Button fx:id="btn_stat" layoutX="660.0" layoutY="442.0" mnemonicParsing="false" onAction="#StatLivraison" text="Statistiques" />
+   </children>
+</AnchorPane>
