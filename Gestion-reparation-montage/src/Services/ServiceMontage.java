@@ -98,7 +98,7 @@ public class ServiceMontage implements MontageCrud<Montage> {
            String querry = "UPDATE `montage` SET processeur = '"+t.getProcesseur()+
                         "', carte_mere = '"+t.getCarte_mere()+"', carte_graphique = '"+t.getCarte_graphique()+
                         "', disque_systeme = '"+t.getDisque_systeme()
-                        +"', stockage_supp = '"+t.getStockage_supp() +"', boitier= '"+t.getBoitier()+"' WHERE `id` = '"+t.getIdmontage()+"'";
+                        +"', stockage_supp = '"+t.getStockage_supp() +"', boitier= '"+t.getBoitier()+"', montant= '"+t.getMontant()+"' WHERE `id` = '"+t.getIdmontage()+"'";
                 Statement stm = cnx.createStatement();
 
                 stm.executeUpdate(querry);

@@ -221,11 +221,13 @@ private boolean controlerFormulaire() {
                    rep.modifier(new Montage(montageId,(String) proc.getValue(),
                         (String) cartemere.getValue(),
                         (String) cartegraph.getValue(),
-                        (String) disquedur.getValue(),(String) stockagesupp.getValue(),(String) boitier.getValue(),0,"arij.hajji@esprit.tn",1));
+                        (String) disquedur.getValue(),(String) stockagesupp.getValue(),(String) boitier.getValue(),(int)x,"arij.hajji@esprit.tn",1));
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setHeaderText(null);
                                 alert.setContentText("montage modified");
                                 alert.showAndWait();
+                                x=0;
+                                clean();
                  }
   
                          }
@@ -251,10 +253,11 @@ private boolean controlerFormulaire() {
       cartegraph.setValue(null);
       stockagesupp.setValue(null);
       disquedur.setValue(null);
-      boitier.setValue(null); 
+      boitier.setValue(null);
+      montant.setText(null);
         
     }
-    void setTextField(int id, String pr, String cr, String cg, String ss,String dd,String b) {
+    void setTextField(int id, String pr, String cr, String cg, String ss,String dd,String b,int m) {
 
         montageId= id;
   
@@ -264,6 +267,8 @@ private boolean controlerFormulaire() {
       stockagesupp.setValue(ss);
       disquedur.setValue(dd);
       boitier.setValue(b); 
+       String a=Integer.toString(m);
+      montant.setText(a+"dt");
 
     }
      void setUpdate(boolean b) {

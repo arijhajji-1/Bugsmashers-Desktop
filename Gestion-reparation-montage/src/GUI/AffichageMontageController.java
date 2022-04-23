@@ -176,7 +176,7 @@ public class AffichageMontageController implements Initializable {
                           // ReparationController.modifier(reparation.getId(), reparation.getDescription());
                            modifier.setUpdate(true);
                            modifier.setTextField(montage.getIdmontage(),montage.getProcesseur(), montage.getCarte_mere(), 
-                                    montage.getCarte_graphique(), montage.getDisque_systeme(),montage.getStockage_supp(),montage.getBoitier());
+                                    montage.getCarte_graphique(), montage.getDisque_systeme(),montage.getStockage_supp(),montage.getBoitier(),montage.getMontant());
 
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
