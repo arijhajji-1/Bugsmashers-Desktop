@@ -32,8 +32,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 import javax.swing.JOptionPane;
-
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+import utils.BadWords;
 /**
  * FXML Controller class
  *
@@ -66,11 +70,12 @@ date.setDayCellFactory(picker -> new DateCell() {
             setDisable(empty || date.compareTo(today) < 0 );
         }
     });
- /*  type.textProperty().addListener((observable, oldValue, newValue) -> {
+   type.textProperty().addListener((observable, oldValue, newValue) -> {
         if (!newValue.matches("\\sa-zA-Z*")) {
            type.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
         }
-    });*/
+    });
+
           List<Category> listCategory = ServiceCategory.getInstance().afficher();
         listCategory.forEach(Categories -> {
             category.getItems().add(Categories.getLabel());
@@ -79,6 +84,7 @@ date.setDayCellFactory(picker -> new DateCell() {
  private boolean controlerFormulaire() {
         boolean isOk = true;
         List<String> messageErreur = new ArrayList<>();
+      
         if (type.getText() == null || type.getText().isEmpty()) {
             isOk = false;
             messageErreur.add("Le champ \"type\" est obligatoire");
@@ -97,6 +103,16 @@ date.setDayCellFactory(picker -> new DateCell() {
             messageErreur.add("Le champ \"category\" est obligatoire");  
          }
         if(!isOk) {
+             String tilte = "CHAMP OBLIGATOIRE";
+            String message = "champs vide";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
             Alert erreur = new Alert(AlertType.ERROR);
             erreur.setTitle("Erreur ! ");
             StringBuilder sb = new StringBuilder();
@@ -121,10 +137,18 @@ if(update==false){
                         type.getText(),
                         description.getText(),
                         date.getValue().toString(),"90197079","arij.hajji@esprit.tn",1));
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setHeaderText(null);
-                                alert.setContentText("reparation added");
-                                alert.showAndWait();
+      
+                                String tilte = "reparation";
+            String message = "reparation ajouté";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.FADE;
+
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
+           
         clean();
                   
                  }
@@ -134,7 +158,18 @@ if(update==false){
                    rep.modifier(new Reparation(reparationId,(String) category.getValue(),
                         type.getText(),
                         description.getText(),
-                        date.getValue().toString())) ;    
+                        date.getValue().toString())) ;
+                  String tilte = "reparation";
+            String message = "reparation modifié";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
+                    clean();
                  }
   
                          

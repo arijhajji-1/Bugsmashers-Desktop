@@ -46,7 +46,7 @@ int idrep;
 		
 	
                    ServiceAvisReparation rep = new ServiceAvisReparation();
-		rep.ajouter(new AvisReparation(idrep,descrip.getText(),"arij.hajji@esprit.tn","arij",1));
+		rep.ajouter(new AvisReparation(descrip.getText(),"arij.hajji@esprit.tn","arij",idrep,1));
                 System.out.println(idrep);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setHeaderText(null);

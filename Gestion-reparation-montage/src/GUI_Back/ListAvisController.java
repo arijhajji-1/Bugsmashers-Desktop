@@ -6,6 +6,7 @@
 package GUI_Back;
 
 import Model.AvisReparation;
+import Model.Reparation;
 
 import Services.ServiceAvisReparation;
 
@@ -49,6 +50,7 @@ public class ListAvisController implements Initializable {
     public static AvisReparation AvisActuel;
     private final static int rowsPerPage = 2;
    AvisReparation avisRep;
+   Reparation reparation;
     @FXML
     private TableColumn<AvisReparation, Integer> idrep;
     @FXML
@@ -61,6 +63,8 @@ public class ListAvisController implements Initializable {
     private TableView<AvisReparation> tab;
     @FXML
     private Button back;
+    @FXML
+    private TableColumn<AvisReparation, Integer> iduser;
 
     /**
      * Initializes the controller class.
@@ -74,11 +78,13 @@ public class ListAvisController implements Initializable {
      
        private void loadDate() {
         List<AvisReparation> listAvis = ServiceAvisReparation.getInstance().afficher();
+               //System.out.println(avisRep.getIdreparation());
 
         if (!listAvis.isEmpty()) {
             for (int i = 0; i < listAvis.size(); i++) {
                AvisReparation AvisReparation = listAvis.get(i);
                 avis.add(AvisReparation);
+
             }
         }
               
@@ -88,8 +94,8 @@ public class ListAvisController implements Initializable {
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         mail.setCellValueFactory(new PropertyValueFactory<>("email"));
   idrep.setCellValueFactory(new PropertyValueFactory<>("idrep_id"));
+  iduser.setCellValueFactory(new PropertyValueFactory<>("iduser"));
        AvisActuel= null;
-
         tab.setItems(avis);
 
       

@@ -255,7 +255,7 @@ loadDate();
 
         // 2. Set the filter Predicate whenever the filter changes.
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(candidat -> {
+            filteredData.setPredicate(reparation -> {
                 // If filter text is empty, display all candidats.
 
                 if (newValue == null || newValue.isEmpty()) {
@@ -265,9 +265,9 @@ loadDate();
                 // Compare nom and prenom of every candidat with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (candidat.getCategory().toLowerCase().contains(lowerCaseFilter)) {
+                if (reparation.getCategory().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches  name.
-                } else if (candidat.getType().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (reparation.getType().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches prenom.
 
                 } else {

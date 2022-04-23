@@ -55,8 +55,6 @@ public class ServiceAvisReparation implements AvisReparationCrud<AvisReparation>
 
     @Override
     public ObservableList<AvisReparation> afficher() {
-       
-//     int   Re=Reparation.getId();
 ObservableList<AvisReparation> List = FXCollections.observableArrayList();       
 try {
        
@@ -66,13 +64,13 @@ try {
         while (rs.next()){
             AvisReparation p = new AvisReparation();
             
-            p.setId(rs.getInt("id"));
+            p.setId(rs.getInt(1));
 
             p.setDescription(rs.getString("description"));
             p.setNom(rs.getString("nom"));
             p.setEmail(rs.getString("email"));
             p.setIdreparation(rs.getInt("idrep_id"));
-
+System.out.println(p);
           //  p.setIdreparation(rs.getInt(1));
             p.setIduser(rs.getInt("iduser"));
          

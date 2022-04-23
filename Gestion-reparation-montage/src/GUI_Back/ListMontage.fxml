@@ -27,7 +27,7 @@
             </TableView>
             <TextField fx:id="filterField" layoutX="289.0" layoutY="146.0" prefHeight="31.0" prefWidth="277.0" promptText="rechercher une montage" styleClass="form-control-white" />
             <Label fx:id="label" layoutX="192.0" layoutY="143.0" prefHeight="38.0" prefWidth="69.0" text="recherche " />
-            <Text boundsType="LOGICAL_VERTICAL_CENTER" layoutX="226.0" layoutY="47.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes demandes de montage" textAlignment="CENTER" textOrigin="CENTER">
+            <Text boundsType="LOGICAL_VERTICAL_CENTER" layoutX="226.0" layoutY="47.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Les demandes de montage" textAlignment="CENTER" textOrigin="CENTER">
                <font>
                   <Font name="Arial Bold" size="23.0" />
                </font>

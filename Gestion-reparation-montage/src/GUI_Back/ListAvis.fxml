@@ -20,6 +20,7 @@
           <TableColumn fx:id="desc" prefWidth="109.0" text="Description" />
             <TableColumn fx:id="nom" minWidth="0.0" prefWidth="73.0" text="Nom" />
             <TableColumn fx:id="mail" minWidth="2.0" prefWidth="215.0" text="Email" />
+            <TableColumn fx:id="iduser" prefWidth="75.0" text="Iduser" />
         </columns>
       </TableView>
       <Button fx:id="back" layoutX="647.0" layoutY="34.0" mnemonicParsing="false" onAction="#back" text="Back" />
