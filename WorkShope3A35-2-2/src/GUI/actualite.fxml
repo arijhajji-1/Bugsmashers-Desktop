@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="441.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.actualiteController">
+   <children>
+      <Label layoutX="38.0" layoutY="52.0" text="titre" />
+      <Label layoutX="34.0" layoutY="106.0" text="date" />
+      <Label layoutX="34.0" layoutY="156.0" text="description" />
+      <Label layoutX="34.0" layoutY="204.0" text="imageName" />
+      <TextField fx:id="tftitre" layoutX="122.0" layoutY="48.0" />
+      <TextField fx:id="tfdescription" layoutX="122.0" layoutY="152.0" />
+      <TextField fx:id="tfimageName" layoutX="122.0" layoutY="200.0" />
+      <TableView fx:id="tvBocks" editable="true" layoutX="302.0" layoutY="45.0" prefHeight="312.0" prefWidth="407.0">
+        <columns>
+          <TableColumn fx:id="colTitre" prefWidth="81.0" text="titre" />
+          <TableColumn fx:id="colDate" prefWidth="87.0" text="date" />
+            <TableColumn fx:id="colDescription" prefWidth="110.0" text="description" />
+            <TableColumn fx:id="colimageName" prefWidth="126.0" text="imageName" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnajouter" layoutX="19.0" layoutY="318.0" mnemonicParsing="false" onAction="#ajouterActualite" prefHeight="26.0" prefWidth="62.0" text="ajouter" />
+      <Button fx:id="btnmodifier" layoutX="101.0" layoutY="319.0" mnemonicParsing="false" onAction="#modifierActualite" text="modifier" />
+      <Button fx:id="btnsupprimer" layoutX="183.0" layoutY="319.0" mnemonicParsing="false" onAction="#supprimerActualite" text="supprimer" />
+      <DatePicker fx:id="date" layoutX="108.0" layoutY="102.0" />
+      <Button layoutX="513.0" layoutY="381.0" mnemonicParsing="false" onAction="#afficherActualite" text="refresh" />
+      <Button layoutX="155.0" layoutY="259.0" mnemonicParsing="false" onAction="#UploadImage" text="Upload Image" />
+   </children>
+</AnchorPane>
