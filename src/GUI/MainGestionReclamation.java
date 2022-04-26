@@ -21,24 +21,24 @@ import javafx.stage.Stage;
  */
 public class MainGestionReclamation extends Application {
     
-    @Override
-    public void start(Stage primaryStage) {
-       try {
-          Parent root = FXMLLoader.load(getClass().getResource("listReclamation.fxml"));
-            
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+	   @Override
+	    public void start(Stage primaryStage) {
+	         try {
+	          Parent root = FXMLLoader.load(getClass().getResource("statistiques.fxml"));
+	            
+	            Scene scene = new Scene(root);
+	            primaryStage.setScene(scene);
+	            primaryStage.show();
+	        } catch (IOException ex) {
+	            System.out.println(ex.getMessage());
+	        }
+	    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
+	    /**
+	     * @param args the command line arguments
+	     */
+	    public static void main(String[] args) {
+	        launch(args);
+	    }
     
 }

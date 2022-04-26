@@ -64,8 +64,6 @@ private static ServiceReclamation  instance;
                      
       
     
-            stm.executeUpdate( );
-    
     } catch (SQLException ex) {
     
      System.out.println("probleme");
