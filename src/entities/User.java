@@ -8,7 +8,8 @@ public class User {
     private String email;
     private String password;
     private Date date_naissance;
-
+    private String roles;
+    private String photo;
     public User(int id, int telephone, int cin, int status, String firstName, String lastName, String adresse, String email, String password, Date date_naissance, String roles, String photo) {
         this.id = id;
         this.telephone = telephone;
@@ -23,9 +24,6 @@ public class User {
         this.roles = roles;
         this.photo = photo;
     }
-
-    private String roles;
-    private String photo;
 
     public User() {
 

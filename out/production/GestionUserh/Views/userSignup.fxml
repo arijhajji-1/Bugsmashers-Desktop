@@ -27,6 +27,7 @@
                         <Image url="@../images/reloua%20logo-01.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="login" layoutX="89.0" layoutY="478.0" mnemonicParsing="false" onAction="#switchToSignup" text="login" />
                </children></AnchorPane>
          </left>
          <right>

@@ -22,7 +22,7 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
         Parent root=null;
         try {
-            root = FXMLLoader.load(getClass().getResource("userSignup.fxml"));
+            root = FXMLLoader.load(getClass().getResource("loginUser.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Signup!");
             primaryStage.setScene(scene);
