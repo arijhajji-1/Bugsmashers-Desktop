@@ -5,6 +5,9 @@
 package GUI;
 
 import Model.Reclamation;
+import org.controlsfx.control.*;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -22,7 +25,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -32,7 +39,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import services.ServiceReclamation;
 import utils.MyDb;
 import javafx.beans.value.ChangeListener;
@@ -59,37 +71,17 @@ public class FXMLReclamationController implements Initializable {
     private DatePicker PickerDate;
     @FXML
     private ComboBox<String> cbCategorie;
-    @FXML
-    private TableView<Reclamation> TBReclamation;
-    @FXML
-    private TableColumn<Reclamation, Integer> TBIdcommande;
-    @FXML
-    private TableColumn<Reclamation, String> TBCategorie;
-    @FXML
-    private TableColumn<Reclamation, String> TBSujet;
-    @FXML
-    private TableColumn<Reclamation, String> TBDescription;
-    @FXML
-    private TableColumn<Reclamation, String> TBDate;
+   
 ServiceReclamation sr = new ServiceReclamation();
 
- ObservableList<Reclamation> reclamations = FXCollections.observableArrayList();
-final ObservableList<Reclamation> data = FXCollections.observableArrayList();
-    public static Reclamation reclamationActuel;
 
         Reclamation reclamation ;
     /**
      * Initializes the controller class.
      */
- ObservableList<Reclamation> ReclaimList = FXCollections.observableArrayList();
-    @FXML
-    private TableColumn<Reclamation, Integer> tbId;
-    @FXML
+ 
     private Button btn_ajouter;
-    @FXML
-    private Button btn_modifier;
-    @FXML
-    private Button btn_supprimer;
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          PickerDate.setDayCellFactory(picker -> new DateCell() {
@@ -102,92 +94,15 @@ final ObservableList<Reclamation> data = FXCollections.observableArrayList();
     });
         
     cbCategorie.setItems(FXCollections.observableArrayList("Location", "reparation", "montage"));
-   afficher();
+   
     
   
     }    
     
-   private void afficher(){
-          List<Reclamation> listreclamations = ServiceReclamation.getInstance().afficher();
-
-        if (!listreclamations.isEmpty()) {
-            for (int i = 0; i < listreclamations.size(); i++) {
-                reclamation = listreclamations.get(i);
-                reclamations.add(reclamation);
-            }
-        }
-           
-
-       TBIdcommande.setCellValueFactory(new PropertyValueFactory<>("idCommande"));
-        TBSujet.setCellValueFactory(new PropertyValueFactory<>("sujet"));
-        TBCategorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
-        TBDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-       TBDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-       tbId.setCellValueFactory(new PropertyValueFactory<>("id"));
-       reclamationActuel= null;
-
-        TBReclamation.setItems(reclamations); 
-   }
-
-    
-     @FXML
-    void modifierReclamation(ActionEvent event) {
-        
-         Reclamation r = TBReclamation.getSelectionModel().getSelectedItem();
-//int id= Integer.parseInt(tfId.getText());
-        int Idcommande = Integer.parseInt(tfIdCommande.getText());
-        String categorie= cbCategorie.getSelectionModel().getSelectedItem();
-        String sujet= TFSujet.getText();
-        String Description = TADescription.getText();
-        String date= PickerDate.getValue().toString();
-      ServiceReclamation src= new ServiceReclamation();
-        src.modifier(new Reclamation(r.getId(),Idcommande,categorie,sujet,Description,date));
-        init();
-    }
-
-    @FXML
-    void supprimerReclamation(ActionEvent event) {
-        Reclamation reclamationActuelle = TBReclamation.getSelectionModel().getSelectedItem();
-        ServiceReclamation sr= new ServiceReclamation();
-        sr.supprimer(reclamationActuelle);
-     init();
-    
-    }
-    
-    public void refreshTable() {
-        
-        data.clear();
-        List<Reclamation> listreclamations = ServiceReclamation.getInstance().afficher();
-       // TBReclamation.setItems(listreclamations); 
-        
-    }
-    
-     public void updateTable() {
-       
-List<Reclamation> listreclamations = ServiceReclamation.getInstance().afficher();
-        TBIdcommande.setCellValueFactory(new PropertyValueFactory<>("id_commande"));
-        TBCategorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
-        TBSujet.setCellValueFactory(new PropertyValueFactory<>("sujet"));
-       TBDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        TBDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        TBReclamation.setItems(reclamations);
-    
-    }
-
-    public void init() {
-        updateTable();
-        tfIdCommande.clear();
-        cbCategorie.setValue(null);
-        TFSujet.clear();
-        TADescription.clear();
-        PickerDate.setValue(null);
-        reclamations.clear();
-        afficher();
-        
-    }
-
+  
     @FXML
     private void ajouterReclamation(ActionEvent event) {
+    	Image img=new Image("\\Ressources\\iconAdd.png");
          int idCommande = Integer.parseInt(tfIdCommande.getText()) ;
         String categorie= cbCategorie.getSelectionModel().getSelectedItem();
         String sujet= TFSujet.getText();
@@ -205,14 +120,33 @@ List<Reclamation> listreclamations = ServiceReclamation.getInstance().afficher()
         {
              ServiceReclamation sr= new ServiceReclamation();
         sr.ajouter(new Reclamation(idCommande,categorie,sujet,description,date));
+        Notifications notificationBuilder= Notifications.create()
+    			.title("Reclamation Ajoutée!")
+    			.text("votre reclamation a bien été ajoutéé")
+    			.graphic(new ImageView(img))
+    			.hideAfter(Duration.seconds(5))
+    			.position(Pos.TOP_RIGHT);
+    	notificationBuilder.showInformation();
           Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Reclamation ajoutÃ©e!");
                    
         }
-        init();
+       
     }
 
-  
+    //--------------------------------------------------
+    @FXML
+    void listReclamation(ActionEvent event) throws IOException {
+    	Parent parent = FXMLLoader.load(getClass().getResource("listReclamationFront.fxml"));
+        Scene scene = new Scene(parent);
+
+       Stage stage = new Stage();
+        //stage.getIcons().add(new Image("\\Ressources\\Logo.png"));
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
+    }
+   
     
     
 }

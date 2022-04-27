@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutLivraisonController">
+   <children>
+      <AnchorPane prefHeight="123.0" prefWidth="686.0" style="-fx-background-color: #89abab;">
+         <children>
+            <Text fill="#161aa1" layoutX="247.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AJOUT LIVRAISON">
+               <font>
+                  <Font name="System Bold Italic" size="32.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="105.0" fitWidth="152.0" layoutX="1.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+         </children></AnchorPane>
+      <ComboBox fx:id="cbpaie" layoutX="225.0" layoutY="150.0" prefWidth="150.0" promptText="mode de paiement" />
+      <ComboBox fx:id="cblivr" layoutX="225.0" layoutY="204.0" prefWidth="150.0" promptText="mode de livraison" />
+      <ComboBox fx:id="cbregion" layoutX="225.0" layoutY="267.0" prefWidth="150.0" promptText="région" />
+      <TextField fx:id="tfdescription" layoutX="226.0" layoutY="331.0" promptText="description" />
+      <DatePicker fx:id="pickerdate" layoutX="215.0" layoutY="408.0" promptText="date" />
+      <Button fx:id="btn_ajouter" layoutX="343.0" layoutY="478.0" mnemonicParsing="false" onAction="#ajouterLivraison" text="ajouter" />
+   </children>
+</AnchorPane>

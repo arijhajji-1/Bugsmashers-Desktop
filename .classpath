@@ -9,6 +9,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/itextpdf"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/itext"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/CalendarFX"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ViewJar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/controlFX notifications"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jxmaps"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/java.awt"/>
 	<classpathentry kind="lib" path="C:/Users/Gloria/Documents/NetBeansProjects/mysql-connector-java-8.0.28.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx18"/>
 	<classpathentry kind="output" path="build/classes"/>

@@ -4,6 +4,8 @@
  */
 package services;
 
+import Model.Commande;
+import Model.Livraison;
 import Model.Reclamation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -174,5 +176,35 @@ private static ServiceReclamation  instance;
         list.forEach(System.out::println);
         return list.contains(id);
     }
+    
+    
+    
+    public ObservableList<Reclamation> rechercheSujet(String value) {
+        String req = "select * from reclamation where date = '" + value + "'";
+        ObservableList<Reclamation> list = FXCollections.observableArrayList();
+        try {
+            ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(req);
+            while (rs.next()) {//parcourir le resultset
+            	  Reclamation r = new Reclamation();
+                  
+                  r.setId(rs.getInt(1));
+                  r.setIdCommande(rs.getInt(5));
+                  r.setCategorie(rs.getString(3));
+                   r.setSujet(rs.getString(6));
+                   r.setDescription(rs.getString(2));
+                   r.setDate(rs.getString(4));
+                  
+                list.add(r);
+
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     
 }

@@ -1,6 +1,7 @@
 package GUI;
 
 import java.io.IOException;
+import java.time.YearMonth;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ public class MainHome extends Application {
             Scene scene = new Scene(root);
             
             primaryStage.setScene(scene);
+           // primaryStage.setScene(new Scene(new FullCalendarView(YearMonth.now()).getView()));
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

@@ -18,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import GUI.LivraisonFXMLController;
 import javafx.fxml.Initializable;
 
 public class HomeController implements Initializable {
@@ -47,7 +48,7 @@ public class HomeController implements Initializable {
             stage.initStyle(StageStyle.UTILITY);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(FXMLDeliveryController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LivraisonFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
 	}
 	// Event Listener on Button[#btn_Livraison].onAction
@@ -64,7 +65,7 @@ public class HomeController implements Initializable {
             stage.initStyle(StageStyle.UTILITY);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(FXMLDeliveryController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LivraisonFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
 	}
 	

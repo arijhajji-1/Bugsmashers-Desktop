@@ -24,7 +24,7 @@ public class MainReclamation extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
          try {
-          Parent root = FXMLLoader.load(getClass().getResource("FXMLReclamation.fxml"));
+          Parent root = FXMLLoader.load(getClass().getResource("ListReclamationBack.fxml"));
             
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);

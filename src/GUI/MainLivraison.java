@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -24,12 +25,18 @@ public class MainLivraison extends Application {
     @Override
     public void start(Stage primaryStage) {
          try {
-          Parent root = FXMLLoader.load(getClass().getResource("FXMLDelivery.fxml"));
-            
+          Parent root = FXMLLoader.load(getClass().getResource("AjoutLivraison.fxml"));
+          //stage.getIcons().add(new Image("\\Ressources\\icon statistiques.png"));
+
             Scene scene = new Scene(root);
+          //  Image image= new Image("ressources/icon livraison(1).png");
+          //  primaryStage.getIcons().add(image);
             primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException ex) {
+         
+
+           primaryStage.show();
+        } 
+         catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
