@@ -23,5 +23,6 @@
       <TextArea fx:id="TFdescription" layoutX="337.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
       <TextField fx:id="TFQte" layoutX="362.0" layoutY="344.0" />
       <Button layoutX="608.0" layoutY="173.0" mnemonicParsing="false" onAction="#ajouterProduit" prefHeight="39.0" prefWidth="71.0" text="Ajouter" />
+      <Button layoutX="618.0" layoutY="116.0" mnemonicParsing="false" onAction="#uploader" text="Button" />
    </children>
 </AnchorPane>

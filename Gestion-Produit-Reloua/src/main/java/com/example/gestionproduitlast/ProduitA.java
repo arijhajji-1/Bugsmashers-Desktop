@@ -13,9 +13,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.URL;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 
@@ -26,8 +32,10 @@ public class ProduitA implements Initializable {
     TextArea TFdescription;
     @FXML
     ChoiceBox TFcategorie;
+    final FileChooser fc= new FileChooser();
     private int idProduitA;
     private boolean update;
+    private String imagepath;
 
     public void ajouterProduit(ActionEvent actionEvent) {
         String nom,marque,description,category;
@@ -49,10 +57,8 @@ public class ProduitA implements Initializable {
         }
         else {if (opt==0&&update==false){
             ServiceProduitAcheter pa = new ServiceProduitAcheter();
-
-
-
-            pa.ajouter(new ProduitAcheter(0,qte,prix,nom,description,"testimgpath",marque,"11"));
+            List<Category> lpc = ServiceCategory.getInstance().Rech("label", ((String) TFcategorie.getValue()).toLowerCase());
+            pa.ajouter(new ProduitAcheter(0,qte,prix,nom,description,imagepath,marque,String.valueOf(lpc.get(0).getId())));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("ProduitAcheter added");
@@ -61,10 +67,8 @@ public class ProduitA implements Initializable {
         }
         else{
             ServiceProduitAcheter pa = new ServiceProduitAcheter();
-
-
-
-            pa.modifier(new ProduitAcheter(idProduitA,qte,prix,nom,description,"testimgpath",marque,"11"));
+            List<Category> lpc = ServiceCategory.getInstance().Rech("label", ((String) TFcategorie.getValue()).toLowerCase());
+            pa.modifier(new ProduitAcheter(idProduitA,qte,prix,nom,description,imagepath,marque, String.valueOf(lpc.get(0).getId())));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("ProduitAcheter Modified");
@@ -95,16 +99,45 @@ public class ProduitA implements Initializable {
         this.update = b;
 
     }
+    public String categorie;
     void setValues(int qte, String category, String marque, String description,String nom,int id,String imagePath,float prix) {
-
         idProduitA= id;
-
         TFcategorie.setValue(category);
         TFnom.setText(nom);
         TFQte.setText(String.valueOf(qte));
         TFdescription.setText(description);
         TFmarque.setText(marque);
         TFprix.setText(String.valueOf(prix));
+        imagepath=imagePath;
 
+    }
+    public static String generateRandomPassword() {
+        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk"
+                +"lmnopqrstuvwxyz_-";
+        Random rnd = new Random();
+        StringBuilder sb = new StringBuilder(20);
+        for (int i = 0; i < 20; i++)
+            sb.append(chars.charAt(rnd.nextInt(chars.length())));
+        return sb.toString();
+    }
+    public void uploader(ActionEvent actionEvent) throws IOException {
+        fc.setInitialDirectory(new File(System.getProperty("user.home")));
+        fc.getExtensionFilters().clear();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("image file","*.png"));
+        File file = fc.showOpenDialog(null);
+
+        if(file!=null)
+        {
+            BufferedImage bi = ImageIO.read(file);
+            String filename = "i"+generateRandomPassword() + ".png";
+            imagepath = filename;
+            File outputfile = new File("C:\\Users\\USER\\Downloads\\gestionProduitLast\\src\\main\\resources\\img\\"+filename);
+            try {
+                ImageIO.write(bi, "png", outputfile);
+                System.out.println(bi);
+            } catch(Exception e){
+                System.out.println(e.getCause());
+            }
+        }
     }
 }

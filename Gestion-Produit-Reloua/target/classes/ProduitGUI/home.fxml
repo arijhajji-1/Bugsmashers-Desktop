@@ -5,23 +5,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionproduitlast.homeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionproduitlast.homeController">
    <children>
-      <Button layoutX="210.0" layoutY="163.0" mnemonicParsing="false" onAction="#listedesproduit" text="Liste des produits">
+      <Button layoutX="132.0" layoutY="95.0" mnemonicParsing="false" onAction="#listedesproduit" text="Liste back des produits à acheter">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="205.0" layoutY="245.0" mnemonicParsing="false" onAction="#listedescat" text="Liste des categorie">
+      <Button layoutX="194.0" layoutY="200.0" mnemonicParsing="false" onAction="#listedescat" text="Liste des categorie">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="127.0" layoutY="80.0" text="Gestion des produits et categories">
+      <Label layoutX="120.0" layoutY="43.0" text="Gestion des produits et categories">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
+      <Button layoutX="146.0" layoutY="147.0" mnemonicParsing="false" onAction="#listedesproduitlouer" text="Liste back des produits à louer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="131.0" layoutY="252.0" mnemonicParsing="false" onAction="#listedesproduitFront" text="Liste front des produits à acheter">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="145.0" layoutY="315.0" mnemonicParsing="false" onAction="#listedesproduitLouerFront" text="Liste front des produits à louer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="183.0" layoutY="370.0" mnemonicParsing="false" onAction="#statsPCA" text="Statistique sur produit">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

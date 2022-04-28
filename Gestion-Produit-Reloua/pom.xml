@@ -20,6 +20,7 @@
             <artifactId>javafx-controls</artifactId>
             <version>18-ea+6</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
@@ -112,7 +113,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.gestionproduitlast/com.example.gestionproduitlast.HelloApplication
+                            <mainClass>com.example.gestionproduitlast/HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

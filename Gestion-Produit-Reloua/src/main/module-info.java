@@ -11,7 +11,11 @@ module com.example.gestionproduitlast {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires java.desktop;
+    requires core;
+    requires mail;
+    requires activation;
     opens com.example.gestionproduitlast to javafx.fxml;
+    opens Controller to javafx.fxml;
     opens Model;
     exports com.example.gestionproduitlast;
 }
