@@ -1,34 +1,33 @@
 package services;
+
 import entities.User;
 import utils.MyConnection;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Connection;
 
 public class UserServices {
     private Connection cnx = MyConnection.getInstance().getCnx();
     public static int cUserId;
     public static ResultSet cUserRow;
-    public void ajouteruser(User u) {
+    public int ajouteruser(User u) {
         try {
             String requete = "INSERT into user(email,roles,first_name,last_name,adresse,photo,telephone,cin,date_naissance,password,status) values(?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
-            pst.setString(1,u.getEmail());
-            pst.setString(2,u.getRoles() );
-            pst.setString(3,u.getFirstName());
-            pst.setString(4,u.getLastName());
-            pst.setString(5,u.getAdresse());
-            pst.setString(6,u.getPhoto());
-            pst.setInt(7,u.getTelephone());
-            pst.setInt(8,u.getCin());
-            pst.setDate(9,u.getDate_naissance());
-            pst.setString(10,u.getPassword());
-            pst.setInt(11,u.getStatus());
+            pst.setString(1, u.getEmail());
+            pst.setString(2, u.getRoles());
+            pst.setString(3, u.getFirstName());
+            pst.setString(4, u.getLastName());
+            pst.setString(5, u.getAdresse());
+            pst.setString(6, u.getPhoto());
+            pst.setString(7, u.getTelephone());
+            pst.setInt(8, u.getCin());
+            pst.setDate(9, u.getDate_naissance());
+            pst.setString(10, u.getPassword());
+            pst.setInt(11, u.getStatus());
 
 
             pst.executeUpdate();
@@ -38,9 +37,27 @@ public class UserServices {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        int id = 0;
+        try {
+            String requete = "SELECT ID FROM user WHERE ID = ( SELECT MAX(ID) FROM user)";
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+return id;
     }
-    public static List<User> listerUsers() {
+
+
+
+
+
+
+        public static List<User> listerUsers() {
         List<User>mylist=new ArrayList();
         try {
             
@@ -51,7 +68,7 @@ public class UserServices {
             
             User per=new User();
             per.setId(rs.getInt(1));
-            per.setTelephone(rs.getInt("telephone"));
+            per.setTelephone(rs.getString("telephone"));
              per.setStatus(rs.getInt("status"));
              per.setCin(rs.getInt("cin"));
             per.setRoles(rs.getString("roles"));
@@ -84,7 +101,7 @@ public class UserServices {
             pst.setString(2, C.getEmail());
             pst.setInt(3, C.getCin());
             pst.setInt(4, C.getStatus());
-            pst.setInt(5, C.getTelephone());
+            pst.setString(5, C.getTelephone());
             pst.setString(6, C.getFirstName());
             pst.setString(7, C.getLastName());
             pst.setString(8, C.getPassword());
@@ -146,5 +163,19 @@ public class UserServices {
             //System.out.println(ex);
         }
         return false;
+    }
+    public String crypter_password(String password) {
+        String hashValue = "";
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(password.getBytes());
+            byte[] digestedBytes = messageDigest.digest();
+            hashValue = DatatypeConverter.printHexBinary(digestedBytes).toLowerCase();
+
+        } catch (Exception e) {
+        }
+
+        //   return hashValue;
+        return hashValue;
     }
 }

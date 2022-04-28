@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Dashboard">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="98.0">
+         <children>
+            <ImageView fitHeight="47.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/reloua%20logo%201-01.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label ellipsisString="Dashboard" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="100.0" text="Dashboard">
+               <HBox.margin>
+                  <Insets top="50.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

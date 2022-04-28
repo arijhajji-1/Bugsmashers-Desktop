@@ -18,18 +18,18 @@ import java.io.IOException;
  * @author Hsine
  */
 public class NewFXMain extends Application {
-    
+
     public void start(Stage primaryStage) {
         Parent root=null;
         try {
-            root = FXMLLoader.load(getClass().getResource("loginUser.fxml"));
+            root = FXMLLoader.load(getClass().getResource("userSignup.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Signup!");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        } 
+        }
     }
 
     /**
@@ -38,5 +38,5 @@ public class NewFXMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

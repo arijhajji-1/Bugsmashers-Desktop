@@ -1,16 +1,32 @@
 package entities;
 import java.sql.Date;
 public class User {
-    private int id, telephone, cin, status;
+    private int id,  cin, status;
     private String firstName;
     private String lastName;
     private String adresse;
     private String email;
     private String password;
+    private String telephone;
     private Date date_naissance;
     private String roles;
     private String photo;
-    public User(int id, int telephone, int cin, int status, String firstName, String lastName, String adresse, String email, String password, Date date_naissance, String roles, String photo) {
+    public User( String telephone, int cin, int status, String firstName, String lastName, String adresse, String email, String password, Date date_naissance, String roles, String photo) {
+
+        this.telephone = telephone;
+        this.cin = cin;
+        this.status = status;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.adresse = adresse;
+        this.email = email;
+        this.password = password;
+        this.date_naissance = date_naissance;
+        this.roles = roles;
+        this.photo = photo;
+    }
+
+    public User(int id, String telephone, int cin, int status, String firstName, String lastName, String adresse, String email, String password, Date date_naissance, String roles, String photo) {
         this.id = id;
         this.telephone = telephone;
         this.cin = cin;
@@ -24,6 +40,8 @@ public class User {
         this.roles = roles;
         this.photo = photo;
     }
+
+
 
     public User() {
 
@@ -55,11 +73,11 @@ public class User {
         this.id = id;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 

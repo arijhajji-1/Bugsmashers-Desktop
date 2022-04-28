@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.HomePage">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.HomePage">
    <children>
       <VBox prefHeight="600.0" prefWidth="220.0" style="-fx-background-color: #05071F;">
          <children>
@@ -64,7 +64,7 @@
       </VBox>
       <HBox layoutX="220.0" prefHeight="100.0" prefWidth="582.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="Hello" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="106.0" text="Hello" textAlignment="CENTER" translateX="20.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="Hello" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="106.0" text="Hello" textAlignment="CENTER" textFill="#a7f1fc" translateX="20.0">
                <font>
                   <Font size="17.0" />
                </font>

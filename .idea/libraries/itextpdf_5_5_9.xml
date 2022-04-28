@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="itextpdf-5.5.9">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/itextpdf-5.5.9.jar!/" />
+      <root url="jar://$USER_HOME$/poi-1.8.0-dev-20020919.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

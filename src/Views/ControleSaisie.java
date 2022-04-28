@@ -13,11 +13,20 @@ import java.util.regex.Pattern;
  * @author Hsine
  */
 public class ControleSaisie {
-    public boolean testnomprenom(String nom) {
+    public boolean testnomprenom(String nom)
+	{
 		//************************ nom et prenom contiennent que des alphabets ***************************
 		String masque = "^[a-zA-Z]+[a-z]";
 		Pattern pattern = Pattern.compile(masque);
 		Matcher controler = pattern.matcher(nom);
+		return controler.matches();
+	}
+	public boolean testadresse(String adresse)
+	{
+		//************************ nom et prenom contiennent que des alphabets ***************************
+		String masque = "^[a-zA-Z]+[a-z]";
+		Pattern pattern = Pattern.compile(masque);
+		Matcher controler = pattern.matcher(adresse);
 		return controler.matches();
 	}
 //

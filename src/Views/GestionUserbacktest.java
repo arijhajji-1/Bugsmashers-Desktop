@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author Hsine
  */
 public class GestionUserbacktest extends Application {
-     public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) {
         Parent root=null;
         try {
             root = FXMLLoader.load(getClass().getResource("GestionUserBack.fxml"));
@@ -28,7 +28,7 @@ public class GestionUserbacktest extends Application {
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        } 
+        }
     }
     /**
      * @param args the command line arguments
@@ -36,5 +36,5 @@ public class GestionUserbacktest extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

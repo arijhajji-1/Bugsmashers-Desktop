@@ -9,5 +9,12 @@
     <orderEntry type="library" name="javafx-sdk-18" level="project" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-5.1.23-bin" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.12.0" level="project" />
+    <orderEntry type="library" name="controlsfx-8.40.11" level="project" />
+    <orderEntry type="library" name="javax.mail" level="project" />
+    <orderEntry type="library" name="zxing-javase" level="project" />
+    <orderEntry type="library" name="zxing" level="project" />
+    <orderEntry type="library" name="itextpdf-5.5.9" level="project" />
+    <orderEntry type="library" name="poi-1.8.0-dev-20020919" level="project" />
   </component>
 </module>

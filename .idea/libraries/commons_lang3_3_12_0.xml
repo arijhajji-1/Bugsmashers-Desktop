@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="commons-lang3-3.12.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/PiRestaux/lib/commons-lang3-3.12.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/PiRestaux/lib/zxing.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/PiRestaux/lib/javax.mail.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/PiRestaux/lib/controlsfx-8.40.11.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/PiRestaux/lib/zxing-javase.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

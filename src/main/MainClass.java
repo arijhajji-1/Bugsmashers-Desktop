@@ -9,7 +9,7 @@ public class MainClass{
 
             //MyConnection mc = new MyConnection();
             UserServices cc = new UserServices();
-            User u = new User(565,595,548,1,"lastname","adresse","photo","ddd","sdfdf7",new Date(20,12,20),"\t\n" +
+            User u = new User(565,"+21659521457",548,1,"lastname","adresse","photo","ddd","sdfdf7",new Date(20,12,20),"\t\n" +
                     "[\"ROLE_User\"]","fddf");
             cc.ajouteruser(u);
 
