@@ -7,14 +7,17 @@ package GUI_Back;
 
 import Model.Reparation;
 import Services.ServiceReparation;
+import com.jfoenix.controls.JFXComboBox;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -24,10 +27,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,6 +45,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
+import javafx.beans.value.ChangeListener;
 
 /**
  * FXML Controller class
@@ -48,8 +54,11 @@ import javafx.util.Callback;
  */
 public class ReparationAfficheController implements Initializable {
  ObservableList<Reparation> reparations = FXCollections.observableArrayList();
+ ServiceReparation sp= new ServiceReparation();
                 public static Reparation reparationActuelle ;
     private final static int rowsPerPage = 2;
+        private final List<Reparation> data = createData();    
+Reparation u1 = new Reparation();
         Reparation reparation ;
     @FXML
     private TableView<Reparation> tab;
@@ -83,17 +92,46 @@ public class ReparationAfficheController implements Initializable {
     private AnchorPane drawerPane;
     @FXML
     private ImageView exit1;
+    String numTelephone;
+    @FXML
+    private Pagination pagination;
+    @FXML
+    private JFXComboBox<String> tri;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+     tri.getItems().setAll("category", "type", "date");
+
+    // bind the selected fruit label to the selected fruit in the combo box.
+  //  LBshow.textProperty().bind(trinom.getSelectionModel().selectedItemProperty());
+
+    // listen for changes to the fruit combo box selection and update the displayed fruit image accordingly.
+      tri.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+      @Override 
+      public void changed(ObservableValue<? extends String> selected, String oldFruit, String newFruit) {
+     if(newFruit=="category"){  ObservableList<Reparation> list2 = FXCollections.observableArrayList(sp.tristreamcategory());
+       tab.setItems(list2);}
+     if(newFruit=="type"){  ObservableList<Reparation> list2 = FXCollections.observableArrayList(sp.tristreamtype());
+       tab.setItems(list2);}
+     if(newFruit=="date"){  ObservableList<Reparation> list2 = FXCollections.observableArrayList(sp.tristreamdate());
+       tab.setItems(list2);}
+    }  });
+
+        pagination.setPageFactory(this::createPage);    
 
       loadDate() ;
+      
     }
- 
+  private Node createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, data.size());
+        tab.setItems(FXCollections.observableArrayList(data.subList(fromIndex, toIndex)));
+        return tab;
+    }
  private void refreshTable() {
           reparations .clear();
 
@@ -174,7 +212,8 @@ public class ReparationAfficheController implements Initializable {
                           //  modifier.setTextField(reparation.getDescription(), a);
                           // ReparationController.modifier(reparation.getId(), reparation.getDescription());
                            modifier.setUpdate(true);
-                           modifier.setTextField(reparation.getId(),reparation.getEtat());
+                           modifier.setTextField(reparation.getId(),reparation.getEtat(),reparation.getTelephone());
+                           
                              refreshTable();
 
                             Parent parent = loader.getRoot();
@@ -207,40 +246,31 @@ public class ReparationAfficheController implements Initializable {
          action.setCellFactory(cellFoctory);
          tab.setItems(reparations);
         //// Wrap the ObservableList in a FilteredList (initially display all data).
-        FilteredList<Reparation> filteredData = new FilteredList<>(reparations, c -> true);
+       filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+       
+       
+        String nom = filterField.getText();
+        u1.setCategory(nom);
+        u1.setType(nom);
+        u1.setDescription(nom);
+        u1.setReserver(nom);
+        u1.setTelephone(nom);
+        u1.setEmail(nom);
+        u1.setEtat(nom);
+         
+        
+         try{
+             int cin1 = Integer.parseInt(nom);
+             u1.setIduser(cin1);
+         }
+   catch(Exception e){}
+    //   LBshow.setText(nom);
+          ObservableList<Reparation> list1 = FXCollections.observableArrayList(sp.rechstream(u1));
 
-        // 2. Set the filter Predicate whenever the filter changes.
-        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(candidat -> {
-                // If filter text is empty, display all candidats.
-
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare nom and prenom of every candidat with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (candidat.getCategory().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches  name.
-                } else if (candidat.getType().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches prenom.
-
-                } else {
-                    return false; // Does not match.
-                }
-            });
-        });
-
-        // 3. Wrap the FilteredList in a SortedList. 
-        SortedList<Reparation> sortedData = new SortedList<>(filteredData);
-
-        // 4. Bind the SortedList comparator to the TableView comparator.
-        // 	  Otherwise, sorting the TableView would have no effect.
-        sortedData.comparatorProperty().bind(tab.comparatorProperty());
-
-        // 5. Add sorted (and filtered) data to the table.
-        tab.setItems(sortedData);
+    tab.setItems(list1);
+    if(filterField.getText().trim().isEmpty()){    tab.setItems(reparations);}
+   ;
+});
         // TODO
     }    
  
@@ -263,5 +293,18 @@ public class ReparationAfficheController implements Initializable {
         } 
     }
 
-    
+     private List<Reparation> createData() {
+      List<Reparation> listreparations = ServiceReparation.getInstance().afficher();
+
+        if (!listreparations.isEmpty()) {
+            for (int i = 0; i < listreparations.size(); i++) {
+                reparation = listreparations.get(i);
+                reparations.add(reparation);
+            }
+        }
+
+
+        return listreparations;
+    }
+     
 }

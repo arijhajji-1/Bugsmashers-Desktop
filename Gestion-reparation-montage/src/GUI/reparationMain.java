@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import utils.BadWords;
 
 /**
  *
@@ -22,6 +23,7 @@ public class reparationMain extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        BadWords.loadConfigs();
         Parent root = FXMLLoader.load(getClass().getResource("Reparation.fxml"));
 
         Scene scene = new Scene(root);

@@ -34,10 +34,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
+import services.LoginSession;
+import services.UsersSession;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import utils.BadWords;
+import utils.mail;
 /**
  * FXML Controller class
  *
@@ -70,11 +73,11 @@ date.setDayCellFactory(picker -> new DateCell() {
             setDisable(empty || date.compareTo(today) < 0 );
         }
     });
-   type.textProperty().addListener((observable, oldValue, newValue) -> {
+  /* type.textProperty().addListener((observable, oldValue, newValue) -> {
         if (!newValue.matches("\\sa-zA-Z*")) {
            type.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
         }
-    });
+    });*/
 
           List<Category> listCategory = ServiceCategory.getInstance().afficher();
         listCategory.forEach(Categories -> {
@@ -84,7 +87,7 @@ date.setDayCellFactory(picker -> new DateCell() {
  private boolean controlerFormulaire() {
         boolean isOk = true;
         List<String> messageErreur = new ArrayList<>();
-      
+     
         if (type.getText() == null || type.getText().isEmpty()) {
             isOk = false;
             messageErreur.add("Le champ \"type\" est obligatoire");
@@ -125,8 +128,7 @@ date.setDayCellFactory(picker -> new DateCell() {
     @FXML
        private void ajouterReparation(ActionEvent event) throws IOException {
           
-              
-        if ( controlerFormulaire()) {
+          if ( controlerFormulaire()) {
 if(update==false){
               
         ServiceReparation rep = new ServiceReparation();
@@ -136,8 +138,11 @@ if(update==false){
 		rep.ajouter(new Reparation((String) category.getValue(),
                         type.getText(),
                         description.getText(),
-                        date.getValue().toString(),"90197079","arij.hajji@esprit.tn",1));
-      
+                        date.getValue().toString(),LoginSession.Telephone,LoginSession.email,LoginSession.UID));
+        mail s = new mail();
+      String  msg="Cher client votre demande de reparation est en cours de traitement";
+      String subject="Demande de reparation";
+                s.send(LoginSession.email,subject,msg);
                                 String tilte = "reparation";
             String message = "reparation ajouté";
             TrayNotification tray = new TrayNotification();
@@ -159,6 +164,8 @@ if(update==false){
                         type.getText(),
                         description.getText(),
                         date.getValue().toString())) ;
+                   
+                   
                   String tilte = "reparation";
             String message = "reparation modifié";
             TrayNotification tray = new TrayNotification();

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomePage">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #02030A;">
+         <left>
+            <VBox prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #05071F;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reloua%20logo-01.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="32.0" prefWidth="174.0" text="Bienvenue" textFill="WHITE">
+                     <padding>
+                        <Insets left="50.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="35.0" prefWidth="131.0" stylesheets="@style.css" text="Accueil">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="50.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="69.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_Home_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" stylesheets="@style.css" text="Evennement">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="36.0" prefWidth="90.0" stylesheets="@style.css" text="Commande">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" stylesheets="@style.css" text="Produits">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_Xbox_Menu_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="90.0" stylesheets="@style.css" text="Montage">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8_Slider__32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+      <HBox prefHeight="119.0" prefWidth="600.0" style="-fx-background-color: #05071F;" AnchorPane.leftAnchor="200.0">
+         <children>
+            <Label text="Label">
+               <HBox.margin>
+                  <Insets left="520.0" />
+               </HBox.margin>
+            </Label>
+            <Circle fill="DODGERBLUE" radius="35.0" stroke="BLACK" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="510.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Circle>
+         </children></HBox>
+   </children>
+</AnchorPane>

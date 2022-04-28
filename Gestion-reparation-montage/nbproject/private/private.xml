@@ -3,18 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Model/Reparation.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/MontageController.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/relouadesktop/RelouaDesktop.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/reparationMain.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/utils/Database.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ReparationAfficheController.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/AffichageMontageController.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ListAvisController.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ReparationAffiche.fxml</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ModifierEtat.fxml</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/ServiceMontage.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/ServiceAvisReparation.java</file>
-            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI_Back/ModifierEtatController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/LoginSession.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/utils/BadWords.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/AffichageReparationController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/NewFXMain.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/UsersSession.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/UserSignup.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/ReparationController.java</file>
+            <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/Services/UserServices.java</file>
             <file>file:/D:/project/desktop/Bugsmashers-Desktop/Gestion-reparation-montage/src/GUI/AvisReparationController.java</file>
         </group>
     </open-files>

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
@@ -180,5 +181,57 @@ public class ServiceReparation implements ReparationCrud<Reparation>{
         }
     return reparation;
     }*/
+public List<Reparation> tristreamcategory() {
 
+  return afficher().stream().sorted((p1,p2)->p1.getCategory().compareTo(p2.getCategory())).collect(Collectors.toList());
+
+    }
+    public List<Reparation> tristreamtype() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getType().compareTo(p2.getType())).collect(Collectors.toList());
+
+    }
+     public List<Reparation> tristreamdate() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getReserver().compareTo(p2.getReserver())).collect(Collectors.toList());
+
+    }
+     public List<Reparation> rechstream(Reparation x) {
+
+
+     return afficher().stream().filter(p->p.getCategory().contains(x.getCategory())).collect(Collectors.toList());
+
+
+
+    }
+     public List<Reparation> recherche(String searched) {
+
+        List<Reparation> lista = new ArrayList<>();
+        try {
+
+            String req = "select * from reparation WHERE category LIKE '%" + searched + "%' OR type LIKE '%" + searched + "%' OR description LIKE '%" + searched + "%';";
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            Reparation p = new Reparation();
+            while (rs.next()) {
+
+                   p.setId(rs.getInt(1));
+            p.setDescription(rs.getString("description"));
+            p.setType(rs.getString(3));
+            p.setCategory(rs.getString("category"));
+            p.setReserver(rs.getString("Reserver"));
+        p.setEmail(rs.getString("email"));
+        p.setEtat(rs.getString("etat"));
+        p.setTelephone(rs.getString("telephone"));
+        p.setIduser(rs.getInt("iduser"));
+
+                lista.add(p);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println("RECHERCHE" + ex.getMessage());
+        }
+        return null;
+
+    }
 }

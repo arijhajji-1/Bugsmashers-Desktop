@@ -17,6 +17,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -38,13 +39,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -61,249 +68,206 @@ public class AffichageReparationController implements Initializable {
     private final static int rowsPerPage = 2;
         Reparation reparation ;
     
-    @FXML
     private TableView<Reparation> tab;
-    @FXML
-    private TableColumn<Reparation, String> tabcategory;
-    @FXML
-    private TableColumn<Reparation, String> tabType;
-    @FXML
-    private TableColumn<Reparation, String> tabDescription;
-    @FXML
-    private TableColumn<Reparation,String> tabDate;
-    @FXML
     private TextField filterField;
-    @FXML
-    private Label label;
-    @FXML
     private Button backButton;
     
 // private ObservableList<Reparation> listreparations;
-    @FXML
     private TableColumn<Reparation, String> action;
+    @FXML
+    private Button Ajouter;
+    @FXML
+    private TextField searchedTXT;
+    @FXML
+    private ScrollPane scroll;
+    @FXML
+    private GridPane grid;
+    MyListener myListener;
+    @FXML
+    private ImageView refreshImgV;
+    @FXML
+    private ImageView exit1;
   
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+     try {
          //pagination.setPageFactory(this::createPage);
          loadDate() ;
+     } catch (IOException ex) {
+         Logger.getLogger(AffichageReparationController.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }
  
- private void refreshTable() {
-          reparations .clear();
-
-      List<Reparation> listreparations = ServiceReparation.getInstance().afficher();
-
-        if (!listreparations.isEmpty()) {
-            for (int i = 0; i < listreparations.size(); i++) {
-                reparation = listreparations.get(i);
-                reparations.add(reparation);
-            }
-        }
-     tab.setItems(reparations );
+ private void refreshTable() throws IOException {
+         
+grid.getChildren().clear();
+       reparations.clear(); 
+       getData();
     }
-      private void loadDate() {
+  private ArrayList<Reparation> getData() throws IOException {
+        ArrayList<Reparation> reparations = new ArrayList<>();
+        Reparation rep;
+        ServiceReparation ps = new ServiceReparation();
+        reparations.addAll(ps.afficher());
+     
+//refreshTable();
+        return reparations;
+
+    }
+
+   
+      private void loadDate() throws IOException {
+          
+        exit1.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
         List<Reparation> listreparations = ServiceReparation.getInstance().afficher();
 
-        if (!listreparations.isEmpty()) {
-            for (int i = 0; i < listreparations.size(); i++) {
-                reparation = listreparations.get(i);
-                reparations.add(reparation);
-            }
-        }
-            refreshTable();
-
-        tabcategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-        tabType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        tabDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        tabDate.setCellValueFactory(new PropertyValueFactory<>("Reserver"));
-       
-       reparationActuelle= null;
-
-        tab.setItems(reparations);
-      Callback<TableColumn<Reparation, String>, TableCell<Reparation, String>> cellFoctory = (TableColumn<Reparation, String> param) -> {
-            // make cell containing buttons
-            final TableCell<Reparation, String> cell = new TableCell<Reparation, String>() {
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    //that cell created only on non-empty rows
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-
-                    } else {
-                       // FontAwesomeIconView deleteicon = new FontAwesomeIconView(FontAwesomeIcon.REMOVE);
-
-                           FontAwesomeIconView deleteicon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        FontAwesomeIconView editicon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
-                        FontAwesomeIconView plus = new FontAwesomeIconView(FontAwesomeIcon.PLUS);
-
-                        deleteicon.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-glyph-size:28px;"
-                                + "-fx-fill:#ff1744;"
-                        );
-                        editicon.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-glyph-size:28px;"
-                                + "-fx-fill:#00E676;"
-                        );
-                         plus.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-glyph-size:28px;"
-                                + "-fx-fill:#0000FF;"
-                        );
-                        deleteicon.setOnMouseClicked((MouseEvent event) -> {
-                            
-                            reparation = tab.getSelectionModel().getSelectedItem();
-                            ServiceReparation rep = new ServiceReparation();
-                            rep.supprimer(reparation);
-                            refreshTable();
-                            
-                           
-
-                          
-
-                        });
-                          plus.setOnMouseClicked((MouseEvent event) -> {
-                             
-
          
-                                                                            reparationActuelle = reparation;
+        reparations.addAll(getData());
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < reparations.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("reparationModel.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
 
-                           reparation = tab.getSelectionModel().getSelectedItem();
-                          FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("AvisReparation.fxml"));
+                reparationModelController itemController = fxmlLoader.getController();
+                itemController.setData(reparations.get(i), myListener);
 
-                            try {
-                                loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(AffichageReparationController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                         loadDate();
-                            AvisReparationController ajout = loader.getController();
-                            
-                             ajout.id(reparation.getId());
-                             System.out.println(reparation.getId());
-                         Parent parent = loader.getRoot();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(parent));
-                            stage.initStyle(StageStyle.UTILITY);
-                            stage.show();
-                            refreshTable();
-                            
-                           
-
-                          
-
-                        });
-                        editicon.setOnMouseClicked((MouseEvent event) -> {
-                            
-                            reparation = tab.getSelectionModel().getSelectedItem();
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("Reparation.fxml"));
-                            try {
-                                loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(AffichageReparationController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            loadDate();
-                            ReparationController modifier = loader.getController();
-                          //  String a = "" + reparation.getId();
-                          //  modifier.setTextField(reparation.getDescription(), a);
-                          // ReparationController.modifier(reparation.getId(), reparation.getDescription());
-                           modifier.setUpdate(true);
-                           modifier.setTextField(reparation.getId(),reparation.getType(), reparation.getReserver(), 
-                                    reparation.getDescription(), reparation.getCategory());
-
-                            Parent parent = loader.getRoot();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(parent));
-                            stage.initStyle(StageStyle.UTILITY);
-                            stage.show();
-loadDate();
-
-                           
-
-                        });
-
-                        HBox managebtn = new HBox(editicon, deleteicon,plus);
-                        managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(deleteicon, new Insets(2, 2, 0, 3));
-                        HBox.setMargin(editicon, new Insets(2, 3, 0, 2));
-                                                HBox.setMargin(editicon, new Insets(2, 4, 0, 1));
-
-
-                        setGraphic(managebtn);
-
-                        setText(null);
-
-                    }
+                if (column == 3) {
+                    column = 0;
+                    row++;
                 }
 
-            };
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
 
-            return cell;
-        };
-         action.setCellFactory(cellFoctory);
-         tab.setItems(reparations);
-        //// Wrap the ObservableList in a FilteredList (initially display all data).
-        FilteredList<Reparation> filteredData = new FilteredList<>(reparations, c -> true);
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-        // 2. Set the filter Predicate whenever the filter changes.
-        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(reparation -> {
-                // If filter text is empty, display all candidats.
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare nom and prenom of every candidat with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (reparation.getCategory().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches  name.
-                } else if (reparation.getType().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches prenom.
-
-                } else {
-                    return false; // Does not match.
-                }
-            });
-        });
-
-        // 3. Wrap the FilteredList in a SortedList. 
-        SortedList<Reparation> sortedData = new SortedList<>(filteredData);
-
-        // 4. Bind the SortedList comparator to the TableView comparator.
-        // 	  Otherwise, sorting the TableView would have no effect.
-        sortedData.comparatorProperty().bind(tab.comparatorProperty());
-
-        // 5. Add sorted (and filtered) data to the table.
-        tab.setItems(sortedData);
-        // TODO
+      
     }    
  
-    @FXML
-    private void selectReparation(MouseEvent event) {
-              reparationActuelle = tab.getSelectionModel().getSelectedItem();
-    }
+   
+
+    
 
     @FXML
-    private void back(ActionEvent event) {
+    private void Ajouter(ActionEvent event) {
          try {
             FXMLLoader main = new FXMLLoader(getClass().getResource("Reparation.fxml"));
             Parent root = (Parent) main.load();
          
-            this.backButton.getScene().setRoot(root);
+            this.Ajouter.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println(e);
+        } 
+    }
+
+    @FXML
+    private void searchedAvance(KeyEvent event) {
+         grid.getChildren().clear();
+
+        ServiceReparation gs = new ServiceReparation();
+        java.util.List<Reparation> mylist = new ArrayList<>();
+
+        mylist = gs.recherche(searchedTXT.getText());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < mylist.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("reparationModel.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                reparationModelController itemController = fxmlLoader.getController();
+                itemController.setData(mylist.get(i), myListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+
+    @FXML
+    private void RechercheGuide(ActionEvent event) {
+          ServiceReparation gs = new ServiceReparation();
+        
+  int column = 0;
+        int row = 1;
+        for (int i = 0; i < reparations.size(); i++) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("reparationModel.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                reparationModelController itemController = fxmlLoader.getController();
+                itemController.setData(reparations.get(i), myListener);
+                if (column == 1) {
+                    column = 0;
+                    row++;
+
+                }
+
+                grid.add(anchorPane, column++, row);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+                // setGrid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+                // setGrid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+            } catch (IOException ex) {
+                System.err.println(ex.getMessage());
+            }
         }
 
+    }
+
+    @FXML
+    private void ClearAll(MouseEvent event) throws IOException {
+            grid.getChildren().clear();
+            reparations.clear();
+             loadDate();
     }
 
    

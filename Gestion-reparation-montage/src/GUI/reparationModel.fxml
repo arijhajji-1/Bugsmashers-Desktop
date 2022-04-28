@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onMousePressed="#click" prefHeight="300.0" prefWidth="317.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reparationModelController">
+   <children>
+      <VBox fx:id="cardReparation" alignment="TOP_CENTER" layoutX="23.0" layoutY="8.0" prefHeight="303.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="51.0" prefWidth="185.0">
+               <children>
+                  <Label fx:id="nameLabel" prefHeight="47.0" prefWidth="220.0" text="Reparation" textFill="#e80505">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fx:id="deleteIcon" fitHeight="26.0" fitWidth="29.0" onMouseClicked="#DeleteGuide" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                     <image>
+                        <Image url="@../resources/x-button.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="27.0" prefWidth="317.0">
+               <children>
+                  <Label fx:id="category" prefHeight="21.0" prefWidth="259.0" text="Category" textFill="#831111">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="categorylabel" layoutX="61.0" layoutY="25.0" prefHeight="30.0" prefWidth="381.0" text="pc">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="81.0" prefWidth="185.0">
+               <children>
+                  <Label fx:id="type" prefHeight="21.0" prefWidth="159.0" text="Type" textFill="#831111">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="typelabel" layoutX="61.0" layoutY="25.0" prefHeight="21.0" prefWidth="296.0" text="panne">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="185.0">
+               <children>
+                  <Label fx:id="description" prefHeight="21.0" prefWidth="299.0" text="Description" textFill="#831111">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="descriptionlabel" layoutX="61.0" layoutY="25.0" prefWidth="381.0" text="probleme">
+                     <HBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="185.0">
+               <children>
+                  <Label fx:id="date" prefHeight="21.0" prefWidth="98.0" text="Date:" textFill="#831111">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="datelabel" layoutX="61.0" layoutY="25.0" prefHeight="21.0" prefWidth="184.0" text="23-4-2022">
+                     <HBox.margin>
+                        <Insets left="30.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefWidth="185.0" />
+            <HBox prefWidth="185.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="317.0">
+               <children>
+                  <Button fx:id="avis" mnemonicParsing="false" onAction="#avis" styleClass="rightbar-btn" text="Avis" textFill="#f2f7fc">
+                     <effect>
+                        <Reflection />
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnSupprimer" alignment="CENTER" graphicTextGap="2.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@style.css" text="Supprimer" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="70.0" right="10.0" />
+                     </HBox.margin>
+                     <effect>
+                        <Reflection />
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnmodifier" alignment="CENTER" graphicTextGap="2.0" mnemonicParsing="false" onAction="#ModifierReparation" prefHeight="25.0" prefWidth="77.0" styleClass="res-btn" stylesheets="@style.css" text="Modifier" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <effect>
+                        <Reflection />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="fruit-item" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

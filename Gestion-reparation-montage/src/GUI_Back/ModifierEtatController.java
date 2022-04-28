@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import utils.sms;
 
 /**
  * FXML Controller class
@@ -23,6 +24,8 @@ import javafx.scene.control.ComboBox;
 public class ModifierEtatController implements Initializable {
 int reparationId;
     private boolean update;
+    String numTelephone;
+    Reparation reparation;
 
     @FXML
     private ComboBox<String> etat;
@@ -43,14 +46,20 @@ int reparationId;
         if(update){
          ServiceReparation rep = new ServiceReparation();
 
-                   rep.modifierEtat(new Reparation(reparationId,(String)etat.getValue())) ;  }
+                   rep.modifierEtat(new Reparation(reparationId,(String)etat.getValue())) ; 
+           
+                sms s = new sms();
+                s.send("Votre appreil est préte merci de le recupérer", numTelephone);
+        }
     }
    
-    void setTextField(int id,String et) {
+    void setTextField(int id,String et,String tel) {
 
         reparationId= id;
   
         etat.setValue(et);
+        numTelephone=tel;
+      
 
     }
      void setUpdate(boolean b) {
