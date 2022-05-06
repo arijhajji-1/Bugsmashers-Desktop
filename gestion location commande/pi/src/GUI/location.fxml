@@ -17,10 +17,10 @@
       <Label layoutX="63.0" layoutY="44.0" text="Date debut de location:" />
       <Label layoutX="63.0" layoutY="134.0" text="Date fin de location:" />
       <Label layoutX="420.0" layoutY="134.0" text="Total:" />
-      <Label layoutX="315.0" layoutY="329.0" text="Listes des locations:" />
+      <Label layoutX="273.0" layoutY="242.0" text="Listes des locations:" />
       <Button fx:id="btnajoutl" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#ajouterlocation" text="Ajouter Location" />
-      <ComboBox fx:id="produitlouer" layoutX="60.0" layoutY="266.0" prefHeight="25.0" prefWidth="194.0" promptText="choisissez un produit" />
-      <Label layoutX="59.0" layoutY="231.0" text="Produits:" />
+      <ComboBox fx:id="produitlouer" layoutX="37.0" layoutY="258.0" prefHeight="25.0" prefWidth="194.0" promptText="choisissez un produit" />
+      <Label layoutX="40.0" layoutY="231.0" text="Produits:" />
       <TextField fx:id="tftotal" layoutX="496.0" layoutY="130.0" />
       <TableView fx:id="tlocation" layoutX="434.0" layoutY="250.0" onSort="#afficherlocation" prefHeight="200.0" prefWidth="320.0">
         <columns>
@@ -31,11 +31,14 @@
         </columns>
       </TableView>
       <Button fx:id="btnmodifier" layoutX="124.0" layoutY="325.0" mnemonicParsing="false" onAction="#modifierlocation" text="modifier location" />
-      <Button fx:id="btnsupp" layoutX="284.0" layoutY="364.0" mnemonicParsing="false" onAction="#supprimerlocation" prefHeight="25.0" prefWidth="125.0" text="supprimer location" />
+      <Button fx:id="btnsupp" layoutX="274.0" layoutY="357.0" mnemonicParsing="false" onAction="#supprimerlocation" prefHeight="25.0" prefWidth="125.0" text="supprimer location" />
       <Label layoutX="354.0" layoutY="27.0" prefHeight="27.0" prefWidth="149.0" text="Gestion Location" textAlignment="CENTER" textFill="#eb1010">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Label layoutX="273.0" layoutY="262.0" prefHeight="17.0" prefWidth="66.0" text="Recherche:" />
+      <TextField fx:id="tfrech" layoutX="274.0" layoutY="289.0" prefHeight="25.0" prefWidth="104.0" />
+      <ComboBox fx:id="triDate" layoutX="273.0" layoutY="325.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

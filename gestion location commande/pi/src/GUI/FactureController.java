@@ -7,13 +7,17 @@ package GUI;
 import Model.Facture;
 import Model.Commande;
 import Model.ProduitLouer;
+import Services.Alerte;
 import Services.ServiceCommande;
 import Services.ServiceFacture;
 import Services.ServiceLocation;
 import Services.ServiceProduitLouer;
+import Services.pdf;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,6 +77,10 @@ public class FactureController implements Initializable {
 
     @FXML
     private TextField tfta;
+@FXML
+    private TextField tfrech;
+ @FXML
+    private ComboBox<String> triDate;
 
 
     /**
@@ -103,6 +111,36 @@ ObservableList<Model.Facture> list = FXCollections.observableArrayList(sp.affich
  
 
     tfacture.setItems(list);
+tfrech.textProperty().addListener((observable, oldValue, newValue) -> {
+        ServiceFacture sp1 = new ServiceFacture();
+        Facture u1 =new Facture();
+        String nom = tfrech.getText();
+        u1.setDateF(nom);
+         try{
+              int cin1 = Integer.parseInt(nom);
+             u1.setId(cin1);
+         }
+   catch(Exception e){}
+    //   LBshow.setText(nom);
+          ObservableList<Facture> list1 = FXCollections.observableArrayList(sp1.rechstream(u1));
+
+    tfacture.setItems(list1);
+    if(tfrech.getText().trim().isEmpty()){    tfacture.setItems(list);}
+   ;
+});
+      triDate.getItems().setAll("dateF");
+
+    // bind the selected fruit label to the selected fruit in the combo box.
+  //  LBshow.textProperty().bind(trinom.getSelectionModel().selectedItemProperty());
+
+    // listen for changes to the fruit combo box selection and update the displayed fruit image accordingly.
+      triDate.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+      @Override 
+      public void changed(ObservableValue<? extends String> selected, String oldFruit, String newFruit) {
+     if(newFruit=="dateF"){  ObservableList<Facture> list2 = FXCollections.observableArrayList(sp.tristreamCommandeid());
+       tfacture.setItems(list2);}
+    }  });
     }  
 @FXML
     void affichefacture(ActionEvent event) {
@@ -112,7 +150,10 @@ colid.setCellValueFactory(new PropertyValueFactory<Model.Facture, Integer>("id")
 colcommandeid.setCellValueFactory(new PropertyValueFactory<Model.Facture, Integer>("commande_id"));
 coldate.setCellValueFactory(new PropertyValueFactory<Model.Facture, String>("dateF"));
 colremise.setCellValueFactory(new PropertyValueFactory<Model.Facture, Integer>("remise"));
-coltotal.setCellValueFactory(new PropertyValueFactory<Model.Facture, Integer>("total"));   
+coltotal.setCellValueFactory(new PropertyValueFactory<Model.Facture, Integer>("total"));
+pdf pp=new pdf();   
+pp.imprimer();
+Alerte.display("RelouaTeam", "Generation de fichier PDF avec success");
 ObservableList<Model.Facture> list = FXCollections.observableArrayList(sp.afficher());
       
  
@@ -132,6 +173,7 @@ if ((tfremise.getText().isEmpty()) || (tfta.getText().isEmpty()))
                          alert.show();
                     }
     sp.ajouter(new Model.Facture(idcommande.getValue(),Integer.parseInt(tfremise.getText()),Integer.parseInt(tfta.getText()),datefct.getValue().toString()));
+Alerte.display("RelouaTeam", "facture ajouter avec succes");
 ObservableList<Model.Facture> list = FXCollections.observableArrayList(sp.afficher());
 tfacture.setItems(list);
     }
@@ -141,6 +183,7 @@ tfacture.setItems(list);
 ServiceFacture sp = new ServiceFacture();
      Model.Facture f = tfacture.getSelectionModel().getSelectedItem();
      sp.modifier(new Model.Facture(f.getId(),idcommande.getValue(),Integer.parseInt(tfremise.getText()),Integer.parseInt(tfta.getText()),datefct.getValue().toString()));
+Alerte.display("RelouaTeam", "facture modifier avec succes ");
 ObservableList<Model.Facture> list = FXCollections.observableArrayList(sp.afficher());
 
     tfacture.setItems(list);
@@ -152,6 +195,7 @@ ServiceFacture sp= new ServiceFacture();
         Model.Facture factures = tfacture.getSelectionModel().getSelectedItem();
     
 sp.supprimer(factures);
+Alerte.display("RelouaTeam", "facture supprimer");
  ObservableList<Model.Facture> list = FXCollections.observableArrayList(sp.afficher());
 
     tfacture.setItems(list);

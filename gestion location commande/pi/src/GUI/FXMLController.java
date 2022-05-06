@@ -6,12 +6,17 @@ package GUI;
 
 import Model.Location;
 import Model.ProduitLouer;
+import Services.Alerte;
 import Services.ServiceCommande;
 import Services.ServiceLocation;
 import Services.ServiceProduitLouer;
+import Services.mail;
+import Services.maillocation;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -67,10 +72,16 @@ public class FXMLController implements Initializable {
 
     @FXML
     private TextField tftotal;
+@FXML
+    private ComboBox<String> triDate;
+@FXML
+    private TextField tfrech;
 
+
+float x=0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+tftotal.setEditable(false);
         // TODO
 ServiceLocation sp = new ServiceLocation();
 datedeb.setDayCellFactory(picker -> new DateCell() {
@@ -91,6 +102,12 @@ datefin.setDayCellFactory(picker -> new DateCell() {
     });
 for (ProduitLouer produit : ServiceProduitLouer.getInstance(). afficher()) {
             produitlouer.getItems().add(produit.getNom());
+produitlouer.setOnAction((event)->
+{
+x+=produit.getPrix();
+String a=Float.toString(x);
+tftotal.setText(a+"TND");
+});
         }    
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         coldeb.setCellValueFactory(new PropertyValueFactory<>("db"));
@@ -110,7 +127,40 @@ coldeb.setCellFactory(TextFieldTableCell.<Model.Location> forTableColumn());
 
         ObservableList<Location> list = FXCollections.observableArrayList(sp.afficher());
         tlocation.setItems(list);
+tfrech.textProperty().addListener((observable, oldValue, newValue) -> {
+        ServiceLocation sp1 = new ServiceLocation();
+        Model.Location u1 =new Model.Location ();
+        String nom = tfrech.getText();
+        u1.setDb(nom);
+        u1.setDf(nom);
+        
+         try{
+              int cin1 = Integer.parseInt(nom);
+             u1.setId(cin1);
+         }
+   catch(Exception e){}
+    //   LBshow.setText(nom);
+          ObservableList<Model.Location> list1 = FXCollections.observableArrayList(sp1.rechstream(u1));
 
+    tlocation.setItems(list1);
+    if(tfrech.getText().trim().isEmpty()){    tlocation.setItems(list);}
+   ;
+});
+      triDate.getItems().setAll("db", "df");
+
+    // bind the selected fruit label to the selected fruit in the combo box.
+  //  LBshow.textProperty().bind(trinom.getSelectionModel().selectedItemProperty());
+
+    // listen for changes to the fruit combo box selection and update the displayed fruit image accordingly.
+      triDate.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+      @Override 
+      public void changed(ObservableValue<? extends String> selected, String oldFruit, String newFruit) {
+     if(newFruit=="db"){  ObservableList<Model.Location> list2 = FXCollections.observableArrayList(sp.tristreamdatedeb());
+       tlocation.setItems(list2);}
+     if(newFruit=="df"){  ObservableList<Model.Location> list2 = FXCollections.observableArrayList(sp.tristreamdateF());
+       tlocation.setItems(list2);}
+    }  });
 
 
 
@@ -138,8 +188,10 @@ if ((datedeb.getValue().toString().isEmpty()) || (datefin.getValue().toString().
                          alert.setContentText("Veuillez remplir tous les champs");
                          alert.show();
                     }
-        sp.ajouter(new Model.Location(Integer.parseInt(tftotal.getText()),datedeb.getValue().toString(),datefin.getValue().toString()));
-     
+        sp.ajouter(new Model.Location((int)x,datedeb.getValue().toString(),datefin.getValue().toString()));
+     maillocation ss=new maillocation();
+ss.envoyer();
+Alerte.display("RelouaTeam", "Location passer avec succes merci pour votre confiance :D");
 ObservableList<Model.Location> list = FXCollections.observableArrayList(sp.afficher());
 tlocation.setItems(list);
 
@@ -150,6 +202,7 @@ ServiceLocation sp= new ServiceLocation();
         Model.Location locations = tlocation.getSelectionModel().getSelectedItem();
     
 sp.supprimer(locations);
+Alerte.display("RelouaTeam", "Location supprimer :''''");
  ObservableList<Model.Location> list = FXCollections.observableArrayList(sp.afficher());
 
     tlocation.setItems(list);
@@ -160,6 +213,7 @@ sp.supprimer(locations);
 ServiceLocation sp = new ServiceLocation();
      Model.Location l = tlocation.getSelectionModel().getSelectedItem();
      sp.modifier(new Model.Location(l.getId(),Integer.parseInt(tftotal.getText()),datedeb.getValue().toString(),datefin.getValue().toString()));
+Alerte.display("RelouaTeam", "Location modifier avec succes Bienvenue :D");
 ObservableList<Model.Location> list = FXCollections.observableArrayList(sp.afficher());
 
     tlocation.setItems(list);

@@ -5,7 +5,9 @@
 package GUI;
 
 import Model.Commande;
+import Services.Alerte;
 import Services.ServiceCommande;
+import Services.mail;
 import java.awt.event.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -14,12 +16,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TablePosition;
@@ -28,6 +39,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -77,6 +91,10 @@ public class CommandeController implements Initializable {
 
     @FXML
     private TextField tftelephone;
+@FXML
+    private ComboBox<String> trinom;
+@FXML
+    private TextField tfrech;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -89,7 +107,7 @@ colprenom.setCellValueFactory(new PropertyValueFactory<Commande, String>("prenom
 colpaiment.setCellValueFactory(new PropertyValueFactory<Commande, String>("paiment"));
 coladresse.setCellValueFactory(new PropertyValueFactory<Commande, String>("adresse"));
 coltelephone.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("telephone"));
-    colnom.setCellFactory(TextFieldTableCell.<Commande> forTableColumn());
+colnom.setCellFactory(TextFieldTableCell.<Commande> forTableColumn());
   colnom.setOnEditCommit((CellEditEvent<Commande, String> event) -> {
             TablePosition<Commande, String> pos = event.getTablePosition();
             
@@ -101,15 +119,64 @@ coltelephone.setCellValueFactory(new PropertyValueFactory<Commande, Integer>("te
             sp.modifier(commandes);
         });
      ObservableList<Commande> list = FXCollections.observableArrayList(sp.afficher());
+
       
  
 
     tcommande.setItems(list);
+tfrech.textProperty().addListener((observable, oldValue, newValue) -> {
+        ServiceCommande sp1 = new ServiceCommande();
+        Commande u1 =new Commande();
+        String nom = tfrech.getText();
+        u1.setNom(nom);
+        u1.setPrenom(nom);
+        u1.setAdresse(nom);
+         try{
+              int cin1 = Integer.parseInt(nom);
+             u1.setId(cin1);
+         }
+   catch(Exception e){}
+    //   LBshow.setText(nom);
+          ObservableList<Commande> list1 = FXCollections.observableArrayList(sp1.rechstream(u1));
+
+    tcommande.setItems(list1);
+    if(tfrech.getText().trim().isEmpty()){    tcommande.setItems(list);}
+   ;
+});
+      trinom.getItems().setAll("prenom", "nom", "adresse");
+
+    // bind the selected fruit label to the selected fruit in the combo box.
+  //  LBshow.textProperty().bind(trinom.getSelectionModel().selectedItemProperty());
+
+    // listen for changes to the fruit combo box selection and update the displayed fruit image accordingly.
+      trinom.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+      @Override 
+      public void changed(ObservableValue<? extends String> selected, String oldFruit, String newFruit) {
+     if(newFruit=="prenom"){  ObservableList<Commande> list2 = FXCollections.observableArrayList(sp.tristreamprenom());
+       tcommande.setItems(list2);}
+     if(newFruit=="nom"){  ObservableList<Commande> list2 = FXCollections.observableArrayList(sp.tristreamnom());
+       tcommande.setItems(list2);}
+     if(newFruit=="adresse"){  ObservableList<Commande> list2 = FXCollections.observableArrayList(sp.tristreamadresse());
+       tcommande.setItems(list2);}
+    }  });  
              
     } 
 @FXML
     void ajouterCommande(ActionEvent event) {
     ServiceCommande sp= new ServiceCommande();
+    
+/*tfnom.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\sa-zA-Z*")) {
+            tfnom.setText(newValue.replaceAll("[^\sa-zA-Z]", ""));
+        }
+    });*/
+/*tftelephone.textProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue.matches("\d*")) {
+            tftelephone.setText(newValue.replaceAll("[^\d]", ""));
+        }
+    });*/
+
 if ((tfnom.getText().isEmpty()) || (tfprenom.getText().isEmpty()) || (tfpaiment.getText().isEmpty()) ||(tfadresse.getText().isEmpty()) ||(tftelephone.getText().isEmpty()))
                     {
                          Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -118,8 +185,12 @@ if ((tfnom.getText().isEmpty()) || (tfprenom.getText().isEmpty()) || (tfpaiment.
                          alert.show();
                     }
     sp.ajouter(new Commande(tfnom.getText(),tfprenom.getText(),tfpaiment.getText(),tfadresse.getText(),Integer.parseInt(tftelephone.getText())));
+mail ss=new mail();
+ss.envoyer();
+Alerte.display("RelouaTeam", "Commande passer avec succes merci pour votre confiance :D");
 ObservableList<Commande> list = FXCollections.observableArrayList(sp.afficher());
 tcommande.setItems(list);
+
     }
 @FXML
     void affichercommande(ActionEvent event) {
@@ -142,6 +213,7 @@ ServiceCommande sp= new ServiceCommande();
         Commande commandes = tcommande.getSelectionModel().getSelectedItem();
     
 sp.supprimer(commandes);
+Alerte.display("RelouaTeam", "Commande supprimer");
  ObservableList<Commande> list = FXCollections.observableArrayList(sp.afficher());
 
     tcommande.setItems(list);
@@ -154,12 +226,29 @@ sp.supprimer(commandes);
 ServiceCommande sp = new ServiceCommande();
      Commande c = tcommande.getSelectionModel().getSelectedItem();
      sp.modifier(new Commande(c.getId(),tfnom.getText(),tfprenom.getText(),tfpaiment.getText(),tfadresse.getText(),Integer.parseInt(tftelephone.getText())));
+Alerte.display("RelouaTeam", "Votre Commande modifier avec succes Bienvenue :D");
 ObservableList<Commande> list = FXCollections.observableArrayList(sp.afficher());
 
     tcommande.setItems(list);
     }
 
+@FXML
+    void imprimer(ActionEvent event) {
+      PrinterJob job = PrinterJob.createPrinterJob();
 
+        Node root = this.tcommande;
+
+        if (job != null) {
+            job.showPrintDialog(root.getScene().getWindow()); // Window must be your main Stage
+            Printer printer = job.getPrinter();
+            PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.HARDWARE_MINIMUM);
+            boolean success = job.printPage(pageLayout, root);
+            if (success) {
+                job.endJob();
+            }
+        }
+
+    }
     
 
 }

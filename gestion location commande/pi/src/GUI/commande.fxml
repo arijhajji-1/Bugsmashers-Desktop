@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -33,9 +35,7 @@
       </TableView>
       <Button fx:id="btnajouter" layoutX="46.0" layoutY="372.0" mnemonicParsing="false" onAction="#ajouterCommande" prefHeight="25.0" prefWidth="149.0" text="Confirmer la commande" />
       <Label layoutX="392.0" layoutY="236.0" text="Vos Commandes:" />
-      <Button layoutX="523.0" layoutY="56.0" mnemonicParsing="false" text="recherche" />
-      <TextField layoutX="607.0" layoutY="56.0" />
-      <Button fx:id="trier" layoutX="767.0" layoutY="56.0" mnemonicParsing="false" text="trier" />
+      <TextField fx:id="tfrech" layoutX="725.0" layoutY="60.0" />
       <Button fx:id="btnannuler" layoutX="377.0" layoutY="286.0" mnemonicParsing="false" onAction="#annulercommande" text="Annuler Commande" />
       <Button fx:id="btnmodifier" layoutX="209.0" layoutY="372.0" mnemonicParsing="false" onAction="#modifiercommande" prefHeight="25.0" prefWidth="131.0" text="modifier informations" />
       <Label layoutX="423.0" layoutY="14.0" prefHeight="17.0" prefWidth="286.0" text="Gestion Commandes" textAlignment="CENTER" textFill="#d01313">
@@ -43,5 +43,8 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <ButtonBar layoutX="369.0" layoutY="365.0" prefHeight="40.0" prefWidth="131.0" />
+      <Button fx:id="btnimprimer" layoutX="378.0" layoutY="332.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="25.0" prefWidth="123.0" text="imprimer" />
+      <ComboBox fx:id="trinom" layoutX="541.0" layoutY="60.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
