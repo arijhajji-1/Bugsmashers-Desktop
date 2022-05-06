@@ -4,6 +4,7 @@
  */
 package Services;
 
+import Model.Commande;
 import Model.Location;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import utils.MyDb;
 
 /**
@@ -97,4 +99,24 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
         }
     }
     
+public List<Location> tristreamdatedeb() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getDb().compareTo(p2.getDb())).collect(Collectors.toList());
+
+    }
+    public List<Location> tristreamdateF() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getDf().compareTo(p2.getDf())).collect(Collectors.toList());
+
+    }
+
+   
+    public List<Location> rechstream(Location x) {
+
+
+     return afficher().stream().filter(p->p.getDb().contains(x.getDb())).collect(Collectors.toList());
+
+
+
+    }
 }

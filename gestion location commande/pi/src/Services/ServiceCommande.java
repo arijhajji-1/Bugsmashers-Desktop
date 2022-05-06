@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import utils.MyDb;
 
 /**
@@ -106,6 +107,31 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
         } catch (SQLException se) {
             se.printStackTrace();
         }
+    }
+public List<Commande> tristreamnom() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getNom().compareTo(p2.getNom())).collect(Collectors.toList());
+
+    }
+    public List<Commande> tristreamprenom() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getPrenom().compareTo(p2.getPrenom())).collect(Collectors.toList());
+
+    }
+     public List<Commande> tristreamadresse() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getAdresse().compareTo(p2.getAdresse())).collect(Collectors.toList());
+
+    }
+
+   
+    public List<Commande> rechstream(Commande x) {
+
+
+     return afficher().stream().filter(p->p.getNom().contains(x.getNom())).collect(Collectors.toList());
+
+
+
     }
     
 }

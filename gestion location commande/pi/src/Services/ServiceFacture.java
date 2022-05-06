@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import utils.MyDb;
 
 /**
@@ -97,6 +98,23 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
         } catch (SQLException se) {
             se.printStackTrace();
         }
+    }
+
+public List<Facture> tristreamCommandeid() {
+
+  return afficher().stream().sorted((p1,p2)->p1.getDateF().compareTo(p2.getDateF())).collect(Collectors.toList());
+
+    }
+    
+
+   
+    public List<Facture> rechstream(Facture x) {
+
+
+     return afficher().stream().filter(p->p.getDateF().contains(x.getDateF())).collect(Collectors.toList());
+
+
+
     }
     
 }
