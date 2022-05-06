@@ -21,7 +21,7 @@ public class MyDb {
   static   private Connection cnx;
   static  private MyDb instance ;
     
-   private MyDb(){
+   public MyDb(){
        
        
        try {
