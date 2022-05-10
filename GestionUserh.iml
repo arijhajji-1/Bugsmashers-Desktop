@@ -16,5 +16,9 @@
     <orderEntry type="library" name="zxing" level="project" />
     <orderEntry type="library" name="itextpdf-5.5.9" level="project" />
     <orderEntry type="library" name="poi-1.8.0-dev-20020919" level="project" />
+    <orderEntry type="library" name="jfoenix-17.0.2" level="project" />
+    <orderEntry type="library" name="TrayNotification-5393c3a54f" level="project" />
+    <orderEntry type="library" name="animation-1.4.3" level="project" />
+    <orderEntry type="library" name="animation-1.2.0" level="project" />
   </component>
 </module>

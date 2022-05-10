@@ -8,14 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.LoginSession;
 import services.UserServices;
 
 import java.io.IOException;
-
-
 
 
 public class LoginUser {
@@ -27,7 +26,8 @@ public class LoginUser {
     private Button login;
 
     @FXML
-    private TextField password;
+    private PasswordField password;
+
 
     private Stage stage;
     private Scene scene;
@@ -39,35 +39,44 @@ public class LoginUser {
 
         UserServices cc=new UserServices();
 
-        String email1=cc.crypter_password(email.getText());
-        String password1=password.getText();
+        String email1=(email.getText());
+        String password1=cc.crypter_password(password.getText());
         UserServices sp = new UserServices();
         if((sp.login(email1, password1)==true)){
-            if(LoginSession.Roles.equals("[\n" +
-                    "    \"ROLE_USER\"\n" +
+            if(LoginSession.Roles.equals("[" +
+                    "ROLE_ADMIN" +
                     "]")){
 
-                root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setTitle("Front");
-                stage.setScene(scene);
-                stage.show();
-            }else{
                 root = FXMLLoader.load(getClass().getResource("GestionUserBack.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
-                stage.setTitle("Front");
+                stage.setTitle("Dashboard");
+                stage.setScene(scene);
+                stage.show();
+            }else{
+                root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setTitle("Profile");
                 stage.setScene(scene);
                 stage.show();
             }
 
         }else
         {
-            System.out.print("nnnnnnnn");
+            System.out.print("nope");
             User u=UserSignup.userConn;
         }
 
     }
+    /*@FXML
+    private void showRegisterStage() throws IOException {
+        root = FXMLLoader.load(getClass().getResource("LoginUser.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Login");
+        stage.setScene(scene);
+        stage.show();
+    }*/
 }
 

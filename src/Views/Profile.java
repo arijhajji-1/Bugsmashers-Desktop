@@ -1,13 +1,5 @@
 package Views;
 
-import javafx.fxml.Initializable;
+public class Profile {
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class Profile implements Initializable {
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 }

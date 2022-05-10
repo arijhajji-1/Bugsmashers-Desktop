@@ -25,37 +25,37 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="221.0" stylesheets="@style.css" text="Acceuil">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="221.0" stylesheets="@styles.css" text="Acceuil">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="223.0" stylesheets="@style.css" text="Page Arij">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="223.0" stylesheets="@styles.css" text="Page Arij">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" stylesheets="@style.css" text="Page Mahdi">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" stylesheets="@styles.css" text="Page Mahdi">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="220.0" stylesheets="@style.css" text="Page Gloria">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="220.0" stylesheets="@styles.css" text="Page Gloria">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@style.css" text="Page Houssem">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@styles.css" text="Page Houssem">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@style.css" text="Page Nour">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@styles.css" text="Page Nour">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@style.css" text="Page zeyda">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@styles.css" text="Page zeyda">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

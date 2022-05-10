@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -70,6 +71,8 @@ public class GestionUserBack implements Initializable {
     private TableColumn<User, String> role;
     @FXML
     private TableColumn<User, String> photo;
+    @FXML
+    private Button pdf;
     UserServices reService = new UserServices();
 
 
@@ -220,19 +223,38 @@ public class GestionUserBack implements Initializable {
 
         AfficheResBack(event);
     }
-    @FXML
+    /*@FXML
     void pdf(ActionEvent event) {
         Printer printer = Printer.getDefaultPrinter();
         Node node = new Circle(400, 800, 800);
         PrinterJob job = PrinterJob.createPrinterJob(printer);
         if (job != null) {
+            job.showPrintDialog(root.getScene().getWindow())
             boolean success = job.printPage(tableuserback);
             if (success) {
                 job.endJob();
             }
         }
     }
+*/
+    @FXML
+    void pdf(ActionEvent event) {
+        PrinterJob job = PrinterJob.createPrinterJob();
 
+        Node root = this.tableuserback;
+
+        if (job != null) {
+            job.showPrintDialog(root.getScene().getWindow()); // Window must be your main Stage
+            Printer printer = job.getPrinter();
+            Node node = new Circle(400, 800, 800);
+
+            boolean success = job.printPage(tableuserback);
+            if (success) {
+                job.endJob();
+            }
+        }
+
+    }
 
     @FXML
     private void Rechercher(ActionEvent event) {

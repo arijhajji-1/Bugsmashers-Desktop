@@ -16,19 +16,19 @@
    <children>
       <BorderPane prefHeight="600.0" prefWidth="861.0">
          <left>
-            <AnchorPane prefHeight="600.0" prefWidth="229.0" style="-fx-background-color: #89abab;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="600.0" prefWidth="278.0" style="-fx-background-color: #001219;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="39.0" layoutY="57.0" text="Inscription" textFill="WHITE">
+                  <Label layoutX="56.0" layoutY="337.0" text="Inscription" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="256.0" layoutX="20.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/reloua%20logo-01.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="login" layoutX="89.0" layoutY="478.0" mnemonicParsing="false" onAction="#switchToSignup" text="login" />
+                  <Button fx:id="login" layoutX="84.0" layoutY="535.0" mnemonicParsing="false" onAction="#switchToSignup" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #001219; -fx-background-radius: 0px;" text="Login!" textFill="WHITE" />
                </children></AnchorPane>
          </left>
          <right>
@@ -40,16 +40,16 @@
                         <Button layoutX="213.0" layoutY="311.0" mnemonicParsing="false" onAction="#fnVerifier" text="Verifier Votre compte" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="pnSignUp" prefHeight="600.0" prefWidth="570.0" style="-fx-background-color: #ffffff;">
+                  <AnchorPane fx:id="pnSignUp" layoutX="-8.0" prefHeight="600.0" prefWidth="578.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <TextField fx:id="Nomf" layoutX="262.0" layoutY="64.0" promptText="Nom" />
-                        <TextField fx:id="prenomf" layoutX="262.0" layoutY="116.0" promptText="Prenom" />
-                        <TextField fx:id="emailf" layoutX="261.0" layoutY="168.0" promptText="Email" />
-                        <TextField fx:id="cinf" layoutX="262.0" layoutY="287.0" promptText="Cin" />
-                        <TextField fx:id="telf" layoutX="261.0" layoutY="347.0" promptText="Telephone" />
-                        <TextField fx:id="adressef" layoutX="262.0" layoutY="406.0" promptText="Adresse" />
-                        <DatePicker fx:id="datenf" layoutX="263.0" layoutY="456.0" prefHeight="26.0" prefWidth="146.0" />
-                        <Button layoutX="247.0" layoutY="541.0" mnemonicParsing="false" onAction="#signin" prefHeight="22.0" prefWidth="89.0" text="S'inscrire" />
+                        <TextField fx:id="Nomf" layoutX="262.0" layoutY="64.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="prenomf" layoutX="262.0" layoutY="116.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="emailf" layoutX="261.0" layoutY="168.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="cinf" layoutX="262.0" layoutY="287.0" promptText="Cin" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="telf" layoutX="261.0" layoutY="347.0" promptText="Telephone" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <TextField fx:id="adressef" layoutX="262.0" layoutY="406.0" promptText="Adresse" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <DatePicker fx:id="datenf" layoutX="263.0" layoutY="456.0" prefHeight="26.0" prefWidth="146.0" promptText="Date Naissance" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
+                        <Button layoutX="282.0" layoutY="533.0" mnemonicParsing="false" onAction="#signin" prefHeight="22.0" prefWidth="89.0" style="-fx-background-color: #404040; -fx-background-radius: 0px;" text="S'inscrire" textFill="WHITE" />
                         <Circle fx:id="profilepicture" fill="DODGERBLUE" layoutX="88.0" layoutY="64.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button layoutX="62.0" layoutY="51.0" mnemonicParsing="false" onAction="#uploadsiguppic" opacity="0.08" prefHeight="26.0" prefWidth="54.0" />
                         <Label fx:id="nomctrl" layoutX="260.0" layoutY="42.0" prefHeight="18.0" prefWidth="152.0" />
@@ -59,7 +59,7 @@
                         <Label fx:id="Cinctrl" layoutX="263.0" layoutY="258.0" prefHeight="18.0" prefWidth="152.0" />
                         <Label fx:id="telctrl" layoutX="263.0" layoutY="320.0" prefHeight="18.0" prefWidth="152.0" />
                         <Label fx:id="adressectrl" layoutX="263.0" layoutY="380.0" prefHeight="18.0" prefWidth="152.0" />
-                        <PasswordField fx:id="mdpf" layoutX="261.0" layoutY="221.0" promptText="Mot de passe" />
+                        <PasswordField fx:id="mdpf" layoutX="261.0" layoutY="221.0" promptText="Mot de passe" style="-fx-background-color: transparent; -fx-border-color: #404040; -fx-border-width: 0px 0px 2px 0px;" />
                      </children>
                   </AnchorPane>
                </children>

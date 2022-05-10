@@ -195,7 +195,7 @@ public class UserSignup implements Initializable {
             // Convert a string to UTF-8 bytes in a ByteBuffer
             String result = RandomStringUtils.random(8, false, true);
             res=result;
-            ByteBuffer bbuf = encoder.encode(CharBuffer.wrap("Votr code de validation de compte : "+result));
+            ByteBuffer bbuf = encoder.encode(CharBuffer.wrap("Votre code de validation de compte : "+result));
             b = bbuf.array();
         } catch (CharacterCodingException e) {
             System.out.println(e.getMessage());
@@ -281,7 +281,7 @@ public class UserSignup implements Initializable {
                 stage.setTitle("Front");
                 stage.setScene(scene);
                 stage.show();
-                showMessageDialog(null, "jawek beeh");
+                showMessageDialog(null, "hamdoulah tekhdem");
                 LoginSession.UID=userConn.getId();
                 LoginSession.Roles=userConn.getRoles();
                 LoginSession.firstName=userConn.getFirstName();
