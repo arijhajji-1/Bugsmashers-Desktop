@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.eventPage">
+   <children>
+      <VBox prefHeight="677.0" prefWidth="220.0" style="-fx-background-color: #05071F;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/reloua_logo-01.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="220.0" text="Bienvenue" textAlignment="CENTER" textFill="#ffe992">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="221.0" stylesheets="@styles.css" text="Acceuil">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="223.0" stylesheets="@styles.css" text="Nos Evénements">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" stylesheets="@styles.css" text="Produits">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="220.0" stylesheets="@styles.css" text="Réclamations">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@styles.css" text="Réparation">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@styles.css" text="Montage">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="222.0" stylesheets="@styles.css" text="Page zeyda">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <HBox layoutX="220.0" prefHeight="100.0" prefWidth="734.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="Hello" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="106.0" text="Hello" textAlignment="CENTER" translateX="20.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="40.0" />
+               </HBox.margin>
+            </Label>
+            <Circle fill="DODGERBLUE" radius="35.0" stroke="BLACK" strokeType="INSIDE">
+               <HBox.margin>
+                  <Insets left="550.0" top="5.0" />
+               </HBox.margin>
+            </Circle>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="content" layoutX="219.0" layoutY="122.0" prefHeight="555.0" prefWidth="734.0" />
+   </children>
+</AnchorPane>

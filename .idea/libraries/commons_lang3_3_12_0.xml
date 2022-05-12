@@ -1,0 +1,44 @@
+<component name="libraryTable">
+  <library name="commons-lang3-3.12.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/dependencies/commons-lang3-3.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/controlsfx-8.40.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/controlsfx-8.40.15 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/core-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-glyphsbrowser-all-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/itext-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/itextpdf-5.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/javax.mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/jfoenix-8.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/NotificationAPI.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/TrayTester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/twilio-7.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/twilio-8.8.0-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/twilio-8.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/zxing-javase.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/zxing.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="jar://$PROJECT_DIR$/src/dependencies/commons-lang3-3.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/controlsfx-8.40.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/controlsfx-8.40.15 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/core-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-glyphsbrowser-all-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/itext-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/itextpdf-5.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/javax.mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/jfoenix-8.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/NotificationAPI.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/TrayTester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/twilio-7.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/twilio-8.8.0-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/twilio-8.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/zxing-javase.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/zxing.jar!/" />
+    </excluded>
+  </library>
+</component>

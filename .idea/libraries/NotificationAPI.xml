@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="NotificationAPI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/dependencies/NotificationAPI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

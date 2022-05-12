@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/Alerte.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ServicePanier.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ServiceFacture.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/Commande.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ServiceProduitLouer.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/controller/MarketLController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/iProduitService.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/CommandeBackController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/LocationBack.fxml</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/main.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/FXMLController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Model/ProduitAcheter.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ServiceCommande.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/controller/MarketController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ServiceLocation.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ServiceProduitAcheter.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/mail.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/CommandeController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/commandeBackmain.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/facture.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/FactureController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/utils/MyDb.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Model/Facture.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/CommandeBack.fxml</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/LocationBackmain.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/LocationBackController.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/IService.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/ProduitAcheterCrud.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/maillocation.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/Services/pdf.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/gestion%20location%20commande/src/GUI/Location.java</file>
+        </group>
+    </open-files>
+</project-private>

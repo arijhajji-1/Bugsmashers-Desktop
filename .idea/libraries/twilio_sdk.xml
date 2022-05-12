@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="twilio.sdk" type="repository">
+    <properties maven-id="com.twilio.sdk:twilio:7.12.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/twilio-7.12.0.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/guava-18.0.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/joda-time-2.5.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/jjwt-0.4.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/slf4j-api-1.7.6.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/httpclient-4.5.2.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/commons-logging-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/commons-codec-1.9.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/httpcore-4.4.4.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/jackson-core-2.8.7.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/jackson-annotations-2.8.7.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/jackson-databind-2.8.7.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/jaxb-api-2.2.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/stax-api-1.0-2.jar!/" />
+      <root url="jar://$USER_HOME$/Téléchargements/WorkShope3A35-2/activation-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

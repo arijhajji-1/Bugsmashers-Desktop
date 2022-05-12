@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomeController">
+   <children>
+      <Button fx:id="btn_gestRecl" layoutX="223.0" layoutY="121.0" mnemonicParsing="false" onAction="#modReclamation" style="-fx-background-color: #AAB7B8; -fx-font: arial; -fx-effect: shadow;" text="Gestion Reclamation" />
+      <Button fx:id="btn_Livraison" layoutX="223.0" layoutY="234.0" mnemonicParsing="false" onAction="#modLivraison" text="Gestion Livraison" />
+      <ImageView fx:id="image" fitHeight="133.0" fitWidth="299.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/logo.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

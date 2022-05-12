@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.AvisEvenementController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+
+        <Label fx:id="qualityLabel" layoutX="222.0" layoutY="264.0" text="Commentaire" textFill="#656565">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+        <Button fx:id="validerButton" layoutX="267.0" layoutY="526.0" mnemonicParsing="false" onAction="#submit" text="Commenter" />
+        <TextArea fx:id="TAdescription" layoutX="194.0" layoutY="321.0" prefHeight="135.0" prefWidth="200.0" promptText="Commenter l'événement " />
+        <ListView fx:id="avisList" layoutX="7.0" layoutY="12.0" prefHeight="252.0" prefWidth="584.0" />
+    </children>
+
+</AnchorPane>

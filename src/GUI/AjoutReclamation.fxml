@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLReclamationController">
+   <children>
+      <AnchorPane prefHeight="107.0" prefWidth="687.0" style="-fx-background-color: #89abab;">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="173.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/reloua%20logo-01.png" />
+               </image></ImageView>
+            <Text fill="#9e1212" layoutX="208.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GESTION RECLAMATION">
+               <font>
+                  <Font name="System Bold Italic" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="tfIdCommande" layoutX="233.0" layoutY="144.0" promptText="id commande" />
+      <TextField fx:id="TFSujet" layoutX="233.0" layoutY="244.0" promptText="sujet" />
+      <TextArea fx:id="TADescription" layoutX="206.0" layoutY="292.0" prefHeight="101.0" prefWidth="257.0" promptText="description" />
+      <DatePicker fx:id="PickerDate" layoutX="221.0" layoutY="420.0" promptText="date" />
+      <ComboBox fx:id="cbCategorie" layoutX="233.0" layoutY="195.0" prefWidth="150.0" promptText="catégorie" />
+      <Button fx:id="btn_ajouter" layoutX="318.0" layoutY="483.0" mnemonicParsing="false" onAction="#ajouterReclamation" text="ajouter" />
+      <Button fx:id="btn_list" layoutX="574.0" layoutY="483.0" mnemonicParsing="false" onAction="#listReclamation" text="go to list" />
+   </children>
+</AnchorPane>

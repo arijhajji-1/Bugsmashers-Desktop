@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="core-3.1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/dependencies/core-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-glyphsbrowser-all-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="jar://$PROJECT_DIR$/src/dependencies/core-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/dependencies/fontawesomefx-glyphsbrowser-all-1.0.jar!/" />
+    </excluded>
+  </library>
+</component>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLController">
+   <children>
+      <DatePicker fx:id="datefin" layoutX="63.0" layoutY="166.0" />
+      <DatePicker fx:id="datedeb" layoutX="63.0" layoutY="82.0" />
+      <Label layoutX="63.0" layoutY="44.0" text="Date debut de location:" />
+      <Label layoutX="63.0" layoutY="134.0" text="Date fin de location:" />
+      <Label layoutX="420.0" layoutY="134.0" text="Total:" />
+      <Label layoutX="273.0" layoutY="242.0" text="Listes des locations:" />
+      <Button fx:id="btnajoutl" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#ajouterlocation" text="Ajouter Location" />
+      <TextField fx:id="tftotal" layoutX="496.0" layoutY="130.0" />
+      <TableView fx:id="tlocation" layoutX="434.0" layoutY="250.0" onSort="#afficherlocation" prefHeight="200.0" prefWidth="320.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="coldeb" prefWidth="75.0" text="date-deb" />
+            <TableColumn fx:id="colfin" prefWidth="75.0" text="date-fin" />
+            <TableColumn fx:id="coltotal" prefWidth="75.0" text="total" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnmodifier" layoutX="124.0" layoutY="325.0" mnemonicParsing="false" onAction="#modifierlocation" text="modifier location" />
+      <Button fx:id="btnsupp" layoutX="274.0" layoutY="357.0" mnemonicParsing="false" onAction="#supprimerlocation" prefHeight="25.0" prefWidth="125.0" text="supprimer location" />
+      <Label layoutX="354.0" layoutY="27.0" prefHeight="27.0" prefWidth="149.0" text="Gestion Location" textAlignment="CENTER" textFill="#eb1010">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="262.0" prefHeight="17.0" prefWidth="66.0" text="Recherche:" />
+      <TextField fx:id="tfrech" layoutX="274.0" layoutY="289.0" prefHeight="25.0" prefWidth="104.0" />
+      <ComboBox fx:id="triDate" layoutX="273.0" layoutY="325.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/img" type="java-resource" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="mysql.connector.java" level="project" />
+    <orderEntry type="library" name="mysql.connector.java1" level="project" />
+    <orderEntry type="library" name="twilio.sdk" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Users/jar_files/core-3.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Users/jar_files/controlsfx-8.40.15 (1).jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Users/jar_files/javax.mail-1.6.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Users/jar_files/itextpdf-5.0.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="commons-lang3-3.12.0" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.12.01" level="project" />
+    <orderEntry type="library" name="controlsfx-8.40.11" level="project" />
+    <orderEntry type="library" name="controlsfx-8.40.15 (1)" level="project" />
+    <orderEntry type="library" name="core-3.1.0" level="project" />
+    <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
+    <orderEntry type="library" name="fontawesomefx-glyphsbrowser-all-1.0" level="project" />
+    <orderEntry type="library" name="itext-1.3.1" level="project" />
+    <orderEntry type="library" name="itextpdf-5.0.6" level="project" />
+    <orderEntry type="library" name="javax.mail" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.1" level="project" />
+    <orderEntry type="library" name="NotificationAPI" level="project" />
+    <orderEntry type="library" name="TrayTester" level="project" />
+    <orderEntry type="library" name="twilio-7.1.0" level="project" />
+    <orderEntry type="library" name="twilio-8.8.0-jar-with-dependencies" level="project" />
+    <orderEntry type="library" name="twilio-8.8.0" level="project" />
+    <orderEntry type="library" name="poi-1.8.0-dev-20020919" level="project" />
+    <orderEntry type="library" name="zxing" level="project" />
+    <orderEntry type="library" name="zxing-javase" level="project" />
+  </component>
+</module>

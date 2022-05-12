@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.statReclamationController">
+   <children>
+      <PieChart fx:id="piechart" layoutX="29.0" layoutY="48.0" />
+      <Text layoutX="545.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1: dimanche" />
+      <Text layoutX="548.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2:lundi" />
+      <Text layoutX="548.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3:mardi" />
+      <Text layoutX="550.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7:samedi" />
+      <Text layoutX="550.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6:vendredi" />
+      <Text layoutX="550.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5:jeudi" />
+      <Text layoutX="550.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4:mercredi" />
+      <Text fill="#22c754" layoutX="553.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="légende">
+         <font>
+            <Font name="Bodoni MT" size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
