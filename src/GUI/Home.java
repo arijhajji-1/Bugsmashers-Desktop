@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Home {
 
@@ -112,6 +114,22 @@ public class Home {
     void deconnexion(ActionEvent event) {
         NewFXMain.getInstance().deconnexion();
 
+    }
+    @FXML
+    void liv(ActionEvent event) {
+        try {
+
+            Parent parent = FXMLLoader.load(getClass().getResource("DeliveryFXML.fxml"));
+            Scene scene = new Scene(parent);
+
+            Stage stage = new Stage();
+            //stage.getIcons().add(new Image("\\Ressources\\Logo.png"));
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LivraisonFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

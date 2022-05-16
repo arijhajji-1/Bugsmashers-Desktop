@@ -11,11 +11,17 @@ package GUI;
  * and open the template in the editor.
  */
 
+import Services.*;
+import Services.SendEmailWthImage;
+import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.ByteMatrix;
 import Model.User;
+import com.google.zxing.qrcode.QRCodeWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,10 +42,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.RandomStringUtils;
-import Services.LoginSession;
-import Services.SendEmailWthImage;
-import Services.UserServices;
-import Services.UsersSession;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -206,7 +209,8 @@ public class UserSignup implements Initializable {
         }
 
         String data;
-        try {
+        ByteMatrix matrix = null;
+       /* try {
             data = new String(b, "UTF-8");
             // get a byte matrix for the data
             ByteMatrix matrix = null;
@@ -219,9 +223,21 @@ public class UserSignup implements Initializable {
                 matrix = writer.encode(data, com.google.zxing.BarcodeFormat.QR_CODE, x, h, hints);
             } catch (com.google.zxing.WriterException e) {
                 System.out.println(e.getMessage());
-            }
+            }*/
+        try {
+            data = new String(b, "UTF-8");
+            Image im = QRcodeGenerator.generateQRCodeImage(data,100,100,"qr_png.png");
+            //QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            //ByteMatrix byteMatrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 180, 100);
 
-            // change this path to match yours (this is my mac home folder, you can use: c:\\qr_png.png if you are on windows)
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+         /*   // change this path to match yours (this is my mac home folder, you can use: c:\\qr_png.png if you are on windows)
             String filePath = "C:/Users/Hsine/bugSmashers/GestionUserh/img/qr_png.png";
             File file = new File(filePath);
             try {
@@ -229,71 +245,73 @@ public class UserSignup implements Initializable {
                 System.out.println("printing to " + file.getAbsolutePath());
             } catch (IOException e) {
                 System.out.println(e.getMessage());
-            }
-        } catch (UnsupportedEncodingException e) {
-            System.out.println(e.getMessage());
-        }
+            }*/
+
         String htmlMessage = "Votre compte est en attente scanner ce QR code pour recevoir code de activation  ! ";
-        new SendEmailWthImage(u.getEmail(),"Compte En attente",htmlMessage,"C:/Users/Hsine/bugSmashers/GestionUserh/img/qr_png.png");
+        new SendEmailWthImage(u.getEmail(),"Compte En attente",htmlMessage,"C:\\Users\\Hsine\\gestion location commande\\src\\img\\"+"qr_png.png");
 
 
         pnVerif.toFront();
-    }
-    @FXML
-    public void uploadsiguppic(ActionEvent event)
-    {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        fileChooser.setInitialDirectory(new File("C:\\Users\\Hsine\\BugSmashers\\GestionUserh\\src\\images"));
-        File file = fileChooser.showOpenDialog(null);
 
-        if (file != null)
+
+    }
+
+        @FXML
+        public void uploadsiguppic (ActionEvent event)
         {
-            String TempprofilePicture = file.toURI().toString();
-            System.out.println(TempprofilePicture);
-            Image image = new Image(TempprofilePicture);
-            ImagePattern pattern = new ImagePattern(image);
-            UsersSession.setProfilepicture(TempprofilePicture);
-            profilepicture.setFill(pattern);
-            profilepicture.setStroke(Color.SEAGREEN);
-            profilepicture.setEffect(new DropShadow(20, Color.BLACK));
-            f =file.getAbsolutePath();
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Resource File");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+            fileChooser.setInitialDirectory(new File("C:\\Users\\Hsine\\BugSmashers\\GestionUserh\\src\\images"));
+            File file = fileChooser.showOpenDialog(null);
+
+            if (file != null) {
+                String TempprofilePicture = file.toURI().toString();
+                System.out.println(TempprofilePicture);
+                Image image = new Image(TempprofilePicture);
+                ImagePattern pattern = new ImagePattern(image);
+                UsersSession.setProfilepicture(TempprofilePicture);
+                profilepicture.setFill(pattern);
+                profilepicture.setStroke(Color.SEAGREEN);
+                profilepicture.setEffect(new DropShadow(20, Color.BLACK));
+                f = file.getAbsolutePath();
+            }
+
         }
-
-    }
-    @FXML
-    public void switchToSignup(ActionEvent event) throws IOException
-    {
-        //System.out.println("hello");
-        root = FXMLLoader.load(getClass().getResource("LoginUser.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setTitle("Login");
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    @FXML
-    void fnVerifier(ActionEvent event) throws IOException {
-        if(tfVerif.getText().equals(res)){
-            root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        @FXML
+        public void switchToSignup (ActionEvent event) throws IOException
+        {
+            //System.out.println("hello");
+            root = FXMLLoader.load(getClass().getResource("loginUser.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
-            stage.setTitle("Front");
+            stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
-            showMessageDialog(null, "hamdoulah tekhdem");
-            LoginSession.UID=userConn.getId();
-            LoginSession.Roles=userConn.getRoles();
-            LoginSession.firstName=userConn.getFirstName();
-            LoginSession.email=userConn.getEmail();
-            //LoginSession.avatar=rs.getString("avatar");
-            LoginSession.IsLogged=true;
-        }else{
-            showMessageDialog(null, "enter Valid number");
+
         }
+
+        @FXML
+        void fnVerifier (ActionEvent event) throws IOException {
+            if (tfVerif.getText().equals(res)) {
+                root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setTitle("Front");
+                stage.setScene(scene);
+                stage.show();
+                showMessageDialog(null, "votre compte est verifier");
+                LoginSession.UID = userConn.getId();
+                LoginSession.Roles = userConn.getRoles();
+                LoginSession.firstName = userConn.getFirstName();
+                LoginSession.email = userConn.getEmail();
+                //LoginSession.avatar=rs.getString("avatar");
+                LoginSession.IsLogged = true;
+            } else {
+                showMessageDialog(null, "enter Valid number");
+            }
+        }
+
     }
-}
+

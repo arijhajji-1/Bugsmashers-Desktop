@@ -120,7 +120,7 @@ public class ProduitL implements Initializable {
             BufferedImage bi = ImageIO.read(file);
             String filename = "i"+generateRandomPassword() + ".png";
             imagepath = filename;
-            File outputfile = new File("C:\\Users\\USER\\Downloads\\gestionProduitLast\\src\\main\\resources\\img\\"+filename);
+            File outputfile = new File("C:\\Users\\Hsine\\gestion location commande\\src\\img\\"+filename);
             try {
                 ImageIO.write(bi, "png", outputfile);
                 System.out.println(bi);

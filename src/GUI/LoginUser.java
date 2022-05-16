@@ -69,6 +69,18 @@ public class LoginUser {
         }
 
     }
+    @FXML
+    public void switchtologin(ActionEvent event) throws IOException
+    {
+        System.out.println("hello");
+        root = FXMLLoader.load(getClass().getResource("/GUI/userSignup.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Signup");
+        stage.setScene(scene);
+        stage.show();
+
+    }
     /*@FXML
     private void showRegisterStage() throws IOException {
         root = FXMLLoader.load(getClass().getResource("LoginUser.fxml"));

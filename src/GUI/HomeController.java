@@ -56,7 +56,7 @@ public class HomeController implements Initializable {
 	public void modLivraison(ActionEvent event) {
 		try {
 
-            Parent parent = FXMLLoader.load(getClass().getResource("FXMLDelivery.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("ListReclamationBack.fxml"));
             Scene scene = new Scene(parent);
 
            Stage stage = new Stage();
@@ -68,5 +68,6 @@ public class HomeController implements Initializable {
             Logger.getLogger(LivraisonFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
 	}
+
 	
 }

@@ -36,7 +36,7 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
     @Override
     public void ajouter(Commande c) {
     try {
-        String querry= "INSERT INTO commande(`nom`, `prenom`,`paiment`,`adresse`,`telephone`) VALUES ('"+c.getNom()+"','"+c.getPrenom()+"','"+c.getPaiment()+"','"+c.getAdresse()+"','"+c.getTelephone()+"')";
+        String querry= "INSERT INTO commande(`nom`, `prenom`,`paiment`,`adresse`,`telephone`,`iduser`) VALUES ('"+c.getNom()+"','"+c.getPrenom()+"','"+c.getPaiment()+"','"+c.getAdresse()+"','"+c.getTelephone()+"','"+c.getIduser()+"')";
         Statement stm = cnx.createStatement();
     
     stm.executeUpdate(querry);

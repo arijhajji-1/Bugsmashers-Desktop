@@ -171,7 +171,7 @@ public class evenementController implements Initializable {
             BufferedImage bi = ImageIO.read(file);
             String filename = "i"+generateRandomPassword() + ".png";
             imagepath = filename;
-            File outputfile = new File("/Users/nourmakkari/Downloads/WorkShope3A35-2-2/src/img/"+filename);
+            File outputfile = new File("C:\\Users\\Hsine\\gestion location commande\\src\\img\\"+filename);
             try {
                 ImageIO.write(bi, "png", outputfile);
                 System.out.println(bi);

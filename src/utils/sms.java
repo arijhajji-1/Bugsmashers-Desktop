@@ -19,7 +19,7 @@ public class sms {
     public static final String ACCOUNT_SID
             = "ACd091dbe1eb29a46b5af1a23ef554cf7e";
     public static final String AUTH_TOKEN
-            = "0f7ac27ce76bd204a89ed0068c873d9c";
+            = "45bdce2595f2c01a9547ae076c0bf005";
 
     public void send(String s, String x) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);

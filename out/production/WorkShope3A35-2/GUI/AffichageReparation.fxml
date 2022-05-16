@@ -38,13 +38,12 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#RechercheGuide" prefHeight="26.0" prefWidth="259.0" styleClass="search-button" stylesheets="@styles.css" text="Search" textFill="WHITE" />
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="300.0">
                      <VBox.margin>
                         <Insets right="20.0" top="10.0" />
                      </VBox.margin>
                      <children>
-                        <TextField fx:id="searchedTXT" onKeyPressed="#searchedAvance" prefHeight="11.0" prefWidth="212.0" promptText="Type here to search" styleClass="transparent" stylesheets="@styles.css">
+                        <TextField fx:id="searchedTXT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#searchedAvance" prefHeight="35.0" prefWidth="125.0" promptText="Type here to search" styleClass="transparent" stylesheets="@styles.css">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -52,6 +51,7 @@
                               <Font name="Cambria" size="18.0" />
                            </font>
                         </TextField>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#RechercheGuide" prefHeight="26.0" prefWidth="62.0" styleClass="search-button" stylesheets="@styles.css" text="Search" textFill="WHITE" />
                         <HBox alignment="CENTER" prefHeight="51.0" prefWidth="793.0" stylesheets="@styles.css">
                            <styleClass>
                               <String fx:value="search-box" />

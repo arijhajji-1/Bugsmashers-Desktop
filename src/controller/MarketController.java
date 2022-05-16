@@ -83,6 +83,7 @@ public class MarketController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("here");
         image = new Image(getClass().getResourceAsStream("/img/"+produit.getImage_path()));
         fruitImg.setImage(image);
         ratingBar.setRating(ratingValue);

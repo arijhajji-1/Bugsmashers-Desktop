@@ -24,7 +24,7 @@ import utils.MyDb;
 public class pdf {
 public void imprimer(){
 try{
-String file_name="D:\\reloua.pdf";
+String file_name="C:\\Users\\Hsine\\gestion location commande\\src\\img\\reloua.pdf";
 Document document=new Document();
 PdfWriter.getInstance(document, new FileOutputStream(file_name));
 document.open();

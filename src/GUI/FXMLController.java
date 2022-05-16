@@ -194,7 +194,7 @@ if ((datedeb.getValue().toString().isEmpty()) || (datefin.getValue().toString().
                          alert.setContentText("Veuillez remplir tous les champs");
                          alert.show();
                     }
-        sp.ajouter(new Model.Location((int)x,datedeb.getValue().toString(),datefin.getValue().toString(),LoginSession.UID));
+        sp.ajouter(new Model.Location((int)x,datedeb.getValue().toString(),datefin.getValue().toString(),48));
      maillocation ss=new maillocation();
 ss.envoyer();
 Alerte.display("RelouaTeam", "Location passer avec succes merci pour votre confiance :D");
@@ -218,7 +218,7 @@ Alerte.display("RelouaTeam", "Location supprimer :''''");
     void modifierlocation(ActionEvent event) {
 ServiceLocation sp = new ServiceLocation();
      Model.Location l = tlocation.getSelectionModel().getSelectedItem();
-     sp.modifier(new Model.Location(l.getId(),Integer.parseInt(tftotal.getText()),datedeb.getValue().toString(),datefin.getValue().toString(),LoginSession.UID));
+     sp.modifier(new Model.Location(l.getId(),Integer.parseInt(tftotal.getText()),datedeb.getValue().toString(),datefin.getValue().toString(),48));
 Alerte.display("RelouaTeam", "Location modifier avec succes Bienvenue :D");
 ObservableList<Model.Location> list = FXCollections.observableArrayList(sp.afficher());
 

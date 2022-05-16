@@ -6,9 +6,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.HomePage">
@@ -62,24 +61,17 @@
             </Button>
          </children>
       </VBox>
-      <HBox layoutX="220.0" prefHeight="100.0" prefWidth="582.0">
-         <children>
-            <Circle fill="DODGERBLUE" radius="35.0" stroke="BLACK" strokeType="INSIDE">
-               <HBox.margin>
-                  <Insets left="400.0" top="5.0" />
-               </HBox.margin>
-            </Circle>
-            <Button mnemonicParsing="false" onAction="#deconnexion" text="Logout">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
       <Label fx:id="welcomelbale" alignment="CENTER" contentDisplay="CENTER" ellipsisString="Hello" layoutX="321.0" layoutY="253.0" maxWidth="1.7976931348623157E308" prefHeight="114.0" prefWidth="425.0" text="Hello" textAlignment="CENTER">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="56.0" layoutX="705.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="56.0" />
+      <ImageView fitHeight="49.0" fitWidth="68.0" layoutX="708.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/WhatsApp_Image_2022-01-29_at_5.51.06_PM.jpeg" />
+         </image>
+      </ImageView>
+      <Button layoutX="690.0" layoutY="90.0" mnemonicParsing="false" onAction="#deconnexion" style="-fx-background-color: #FF0000;" stylesheets="@styles.css" text="Deconnexion" />
    </children>
 </AnchorPane>

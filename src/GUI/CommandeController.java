@@ -207,7 +207,7 @@ if ((tfnom.getText().isEmpty()) || (tfprenom.getText().isEmpty()) || (tfpaiment.
                          alert.setContentText("Veuillez remplir tous les champs");
                          alert.show();
                     }
-    sp.ajouter(new Commande(tfnom.getText(),tfprenom.getText(),tfpaiment.getText(),tfadresse.getText(),Integer.parseInt(tftelephone.getText()),LoginSession.UID));
+    sp.ajouter(new Commande(tfnom.getText(),tfprenom.getText(),tfpaiment.getText(),tfadresse.getText(),Integer.parseInt(tftelephone.getText()),48));
 mail ss=new mail();
 ss.envoyer();
 Alerte.display("RelouaTeam", "Commande passer avec succes merci pour votre confiance :D");
@@ -247,7 +247,7 @@ Alerte.display("RelouaTeam", "Commande supprimer");
     void modifiercommande(ActionEvent event) {
 ServiceCommande sp = new ServiceCommande();
      Commande c = tcommande.getSelectionModel().getSelectedItem();
-     sp.modifier(new Commande(c.getId(),tfnom.getText(),tfprenom.getText(),tfpaiment.getText(),tfadresse.getText(),Integer.parseInt(tftelephone.getText()),LoginSession.UID));
+     sp.modifier(new Commande(c.getId(),tfnom.getText(),tfprenom.getText(),tfpaiment.getText(),tfadresse.getText(),Integer.parseInt(tftelephone.getText()),48));
 Alerte.display("RelouaTeam", "Votre Commande modifier avec succes Bienvenue :D");
 ObservableList<Commande> list = FXCollections.observableArrayList(sp.afficher());
 

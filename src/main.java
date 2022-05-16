@@ -28,7 +28,7 @@ public class main extends Application{
     @Override
     public void start(Stage primaryStage) throws IOException {
         //Parent root = FXMLLoader.load(getClass().getResource("GUI/mainMenu.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/Home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/market.fxml"));
         Scene scene =new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("----- Home ------");

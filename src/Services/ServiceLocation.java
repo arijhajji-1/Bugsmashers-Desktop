@@ -28,7 +28,7 @@ private Connection cnx = MyDb.getInstance().getCnx() ;
     @Override
     public void ajouter(Location l) {
     try {
-        String querry= "INSERT INTO location(`date_deb`, `date_fin`,`total_l`) VALUES ('"+l.getDb()+"','"+l.getDf()+"','"+l.getTotall()+"')";
+        String querry= "INSERT INTO location(`date_deb`, `date_fin`,`total_l`,`iduser`) VALUES ('"+l.getDb()+"','"+l.getDf()+"','"+l.getTotall()+"','"+l.getIduser()+"')";
         Statement stm = cnx.createStatement();
     
     stm.executeUpdate(querry);

@@ -30,6 +30,7 @@
                   <Font name="System Bold" size="43.0" />
                </font>
             </Label>
+            <Button layoutX="147.0" layoutY="409.0" mnemonicParsing="false" onAction="#switchtologin" stylesheets="@styles.css" text="Signup" />
          </children>
       </AnchorPane>
    </children>
